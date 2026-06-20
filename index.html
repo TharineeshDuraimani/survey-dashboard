@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Dashboard</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="nav-left">
+
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <h2 class="logo">Survey Dashboard</h2>
+
+        </div>
+
+        <nav class="desktop-nav">
+
+            <a href="#" class="active">
+                Dashboard
+            </a>
+
+            <div class="dropdown">
+
+                <button class="drop-btn">
+                    Surveys
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="pages/survey-new.html">
+                        New Survey
+                    </a>
+
+                    <a href="pages/survey-library.html">
+                        Survey Library
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- MOBILE DRAWER -->
+    <aside class="sidebar" id="sidebar">
+
+        <a href="#" class="active">
+            Dashboard
+        </a>
+
+        <div class="mobile-dropdown">
+
+            <button id="mobileSurveyBtn">
+                Surveys
+                <i class="fas fa-chevron-down"></i>
+            </button>
+
+            <div id="mobileSurveyMenu">
+
+                <a href="pages/survey-new.html">
+                    New Survey
+                </a>
+
+                <a href="pages/survey-library.html">
+                    Survey Library
+                </a>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-container">
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+
+            <h1>Dashboard Overview</h1>
+
+            <p>
+                Welcome to Survey Dashboard
+            </p>
+
+        </section>
+    
+    <section class="hero-section">
+
+    <div class="hero-card glass-card">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <span class="hero-badge">
+                    Insurance Assessor Portal
+                </span>
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Manage vehicle surveys, reports and
+                    supporting documents efficiently.
+                </p>
+
+            </div>
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+                    <span>Today's Surveys</span>
+                    <h3>18</h3>
+                </div>
+
+                <div class="summary-item">
+                    <span>Pending</span>
+                    <h3>4</h3>
+                </div>
+
+                <div class="summary-item">
+                    <span>Completed</span>
+                    <h3>14</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clock-card glass-card">
+
+        <div class="clock-header">
+
+            <i class="fas fa-clock"></i>
+
+            <h3>Live Date & Time</h3>
+
+        </div>
+
+        <div class="clock-display">
+
+            <h2 id="liveTime">00:00:00</h2>
+
+            <p id="liveDate">
+                Loading...
+            </p>
+
+        </div>
+
+    </div>
+
+</section> 
+
+<section class="dashboard-search">
+
+    <div class="search-box">
+
+        <i class="fas fa-search"></i>
+
+        <input
+            type="text"
+            id="dashboardSearch"
+            placeholder="Search Survey ID, Vehicle Number, Owner Name..."
+        >
+
+    </div>
+
+</section>
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="card stat-card">
+                <i class="fas fa-file-alt"></i>
+                <h3 class="counter" data-target="1542">0</h3>
+                <p>Total Surveys</p>
+            </div>
+
+            <div class="card stat-card">
+                <i class="fas fa-clock"></i>
+                <h3 class="counter" data-target="48">0</h3>
+                <p>Pending Surveys</p>
+            </div>
+
+            <div class="card stat-card">
+                <i class="fas fa-check-circle"></i>
+                <h3 class="counter" data-target="1494">0</h3>
+                <p>Completed Surveys</p>
+            </div>
+
+            <div class="card stat-card">
+                <i class="fas fa-folder-open"></i>
+                <h3 class="counter" data-target="5876">0</h3>
+                <p>Documents</p>
+            </div>
+
+        </section>
+
+        <section class="dashboard-widgets">
+
+    <div class="card timeline-card">
+
+        <div class="card-header">
+            <h2>Recent Activity</h2>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div>
+                    <h4>Survey Completed</h4>
+                    <p>TN38AB1234</p>
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div>
+                    <h4>Documents Uploaded</h4>
+                    <p>Survey SV001</p>
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div>
+                    <h4>New Survey Created</h4>
+                    <p>SV002</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+<div class="card notification-card">
+
+    <div class="card-header">
+        <h2>Notifications</h2>
+    </div>
+
+    <div class="notification-list">
+
+        <div class="notification-item">
+
+            <i class="fas fa-bell"></i>
+
+            <div>
+                <h4>Pending Survey</h4>
+                <p>4 surveys need review</p>
+            </div>
+
+        </div>
+
+        <div class="notification-item">
+
+            <i class="fas fa-file"></i>
+
+            <div>
+                <h4>Documents Missing</h4>
+                <p>Survey SV014</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card task-card">
+
+    <div class="card-header">
+        <h2>Today's Tasks</h2>
+    </div>
+
+    <div class="task-list">
+
+        <label class="task-item">
+
+            <input type="checkbox">
+
+            Complete Survey SV001
+
+        </label>
+
+        <label class="task-item">
+
+            <input type="checkbox">
+
+            Verify Documents
+
+        </label>
+
+        <label class="task-item">
+
+            <input type="checkbox">
+
+            Upload Vehicle Photos
+
+        </label>
+
+    </div>
+
+</div>
+
+</section>
+        <!-- CONTENT GRID -->
+        <section class="content-grid">
+
+            <!-- RECENT SURVEYS -->
+
+            <div class="card table-card">
+
+                <div class="card-header">
+                    <h2>Recent Surveys</h2>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Survey ID</th>
+                                <th>Vehicle No</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>SV001</td>
+                                <td>TN38AB1234</td>
+                                <td>Completed</td>
+                                <td>20 Jun 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>SV002</td>
+                                <td>TN38XY4532</td>
+                                <td>Pending</td>
+                                <td>19 Jun 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>SV003</td>
+                                <td>TN39FG9090</td>
+                                <td>Completed</td>
+                                <td>18 Jun 2026</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="card quick-actions">
+
+                <div class="card-header">
+                    <h2>Quick Actions</h2>
+                </div>
+
+                <button class="action-btn">
+                    <i class="fas fa-plus"></i>
+                    New Survey
+                </button>
+
+                <button class="action-btn">
+                    <i class="fas fa-folder-open"></i>
+                    Survey Library
+                </button>
+
+                <button class="action-btn">
+                    <i class="fas fa-upload"></i>
+                    Upload Documents
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
