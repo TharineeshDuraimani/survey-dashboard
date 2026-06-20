@@ -1,0 +1,574 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+
+    /* Ocean Blue Serenity */
+
+    --primary: #0ea5e9;
+    --primary-dark: #0369a1;
+    --primary-light: #38bdf8;
+
+    --secondary: #06b6d4;
+
+    --background: #f0f9ff;
+    --card-bg: #ffffff;
+
+    --text-dark: #0f172a;
+    --text-light: #64748b;
+
+    --border: #dbeafe;
+
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --shadow-sm: 0 2px 10px rgba(0,0,0,.05);
+    --shadow-md: 0 10px 25px rgba(0,0,0,.08);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,.12);
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --transition: all .3s ease;
+
+}
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--background);
+    color:var(--text-dark);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#e0f2fe;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--primary);
+    border-radius:50px;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn,
+.action-btn{
+
+    border:none;
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    color:white;
+
+    border-radius:var(--radius-sm);
+
+    font-weight:600;
+
+    transition:var(--transition);
+}
+
+.btn:hover,
+.action-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+}
+
+/* =========================
+   CARD SYSTEM
+========================= */
+
+.card{
+
+    background:var(--card-bg);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+    border:1px solid rgba(14,165,233,.08);
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-md);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:70px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 30px;
+
+    background:rgba(255,255,255,.9);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:
+    1px solid var(--border);
+}
+
+.logo{
+
+    color:var(--primary-dark);
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+}
+
+/* =========================
+   NAV LEFT
+========================= */
+
+.nav-left{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+/* =========================
+   DESKTOP NAV
+========================= */
+
+.desktop-nav{
+
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.desktop-nav a,
+.drop-btn{
+
+    position:relative;
+
+    background:none;
+    border:none;
+
+    cursor:pointer;
+
+    color:var(--text-dark);
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:var(--transition);
+}
+
+/* underline animation */
+
+.desktop-nav a::after,
+.drop-btn::after{
+
+    content:'';
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--primary);
+
+    border-radius:50px;
+
+    transition:.3s ease;
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after,
+.drop-btn:hover::after{
+
+    width:100%;
+}
+
+.desktop-nav a:hover,
+.drop-btn:hover{
+
+    color:var(--primary-dark);
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown{
+
+    position:relative;
+}
+
+.dropdown-content{
+
+    position:absolute;
+
+    top:45px;
+    right:0;
+
+    width:220px;
+
+    background:white;
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-lg);
+
+    overflow:hidden;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:var(--transition);
+}
+
+.dropdown:hover .dropdown-content{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+.dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+}
+
+.dropdown-content a:hover{
+
+    background:#eff6ff;
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger{
+
+    display:none;
+
+    border:none;
+    background:none;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    color:var(--primary-dark);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:-280px;
+
+    width:280px;
+    height:100vh;
+
+    background:white;
+
+    z-index:1200;
+
+    padding-top:90px;
+
+    transition:.35s ease;
+
+    box-shadow:var(--shadow-lg);
+}
+
+.sidebar.show{
+
+    left:0;
+}
+
+.sidebar a,
+.mobile-dropdown button{
+
+    display:block;
+
+    width:100%;
+
+    padding:16px 25px;
+
+    text-align:left;
+
+    background:none;
+    border:none;
+
+    cursor:pointer;
+
+    font-size:15px;
+    font-weight:600;
+
+    color:var(--text-dark);
+}
+
+.sidebar a:hover,
+.mobile-dropdown button:hover{
+
+    background:#eff6ff;
+}
+
+/* =========================
+   MOBILE SUB MENU
+========================= */
+
+#mobileSurveyMenu{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.3s ease;
+}
+
+#mobileSurveyMenu.open{
+
+    max-height:300px;
+}
+
+#mobileSurveyMenu a{
+
+    padding-left:45px;
+    font-size:14px;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s ease;
+
+    z-index:1100;
+}
+
+.overlay.show{
+
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================
+   TABLES
+========================= */
+
+table{
+    width:100%;
+}
+
+th{
+    color:var(--text-dark);
+}
+
+td{
+    color:var(--text-light);
+}
+
+/* =========================
+   FORM CONTROLS
+========================= */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:var(--radius-sm);
+
+    border:1px solid var(--border);
+
+    outline:none;
+
+    transition:var(--transition);
+
+    font-size:14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:
+    0 0 0 4px
+    rgba(14,165,233,.15);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+.fade-up{
+    animation:fadeUp .6s ease;
+}
+
+.fade-in{
+    animation:fadeIn .5s ease;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablet */
+
+@media (max-width:991px){
+
+    .desktop-nav{
+        display:none;
+    }
+
+    .hamburger{
+        display:block;
+    }
+
+    .navbar{
+        padding:0 20px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width:767px){
+
+    .navbar{
+
+        height:65px;
+
+        padding:0 15px;
+    }
+
+    .logo{
+
+        font-size:18px;
+    }
+
+    .sidebar{
+
+        width:260px;
+        left:-260px;
+    }
+
+    .card{
+
+        border-radius:14px;
+    }
+}

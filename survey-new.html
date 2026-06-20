@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Survey | Survey Dashboard</title>
+
+    <!-- Common Styles -->
+    <link rel="stylesheet" href="../css/common.css">
+
+    <!-- Page Styles -->
+    <link rel="stylesheet" href="../css/survey-new.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="nav-left">
+
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <h2 class="logo">Survey Dashboard</h2>
+
+        </div>
+
+        <nav class="desktop-nav">
+
+            <a href="../index.html">
+                Dashboard
+            </a>
+
+            <div class="dropdown">
+
+                <button class="drop-btn">
+                    Surveys
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="survey-new.html">
+                        New Survey
+                    </a>
+
+                    <a href="survey-library.html">
+                        Survey Library
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- =========================
+         MOBILE SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <a href="../index.html">
+            Dashboard
+        </a>
+
+        <div class="mobile-dropdown">
+
+            <button id="mobileSurveyBtn">
+                Surveys
+                <i class="fas fa-chevron-down"></i>
+            </button>
+
+            <div id="mobileSurveyMenu">
+
+                <a href="survey-new.html">
+                    New Survey
+                </a>
+
+                <a href="survey-library.html">
+                    Survey Library
+                </a>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="dashboard-container">
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <h1>New Vehicle Survey</h1>
+
+            <p>
+                Create and manage insurance vehicle surveys
+            </p>
+
+        </section>
+
+        <section class="status-banner">
+
+    <div class="status-info">
+
+        <div class="status-badge draft">
+            Draft
+        </div>
+
+        <div>
+            <h3>Survey Status</h3>
+            <p>Current survey is being prepared.</p>
+        </div>
+
+    </div>
+
+    <div class="survey-meta">
+
+        <div>
+            <small>Survey ID</small>
+            <strong id="generatedSurveyId">
+                Loading...
+            </strong>
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- =========================
+             PROGRESS TRACKER
+        ========================== -->
+
+        <section class="survey-progress">
+
+            <div class="progress-step active">
+                <span>1</span>
+                <p>Survey</p>
+            </div>
+
+            <div class="progress-step">
+                <span>2</span>
+                <p>Vehicle</p>
+            </div>
+
+            <div class="progress-step">
+                <span>3</span>
+                <p>Owner</p>
+            </div>
+
+            <div class="progress-step">
+                <span>4</span>
+                <p>Documents</p>
+            </div>
+
+        </section>
+
+        <!-- =========================
+             SURVEY INFORMATION
+        ========================== -->
+
+        <div class="card form-section">
+
+            <div class="section-title">
+                <i class="fas fa-file-alt"></i>
+                Survey Information
+            </div>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Survey ID</label>
+                    <input type="text" id="surveyId" readonly>
+                </div>
+
+                <div>
+                    <label>Survey Date</label>
+                    <input type="date">
+                </div>
+
+                <div>
+                    <label>Assessor Name</label>
+                    <input type="text" placeholder="Enter Assessor Name">
+                </div>
+
+                <div>
+                    <label>Survey Type</label>
+
+                    <select>
+                        <option>Accident</option>
+                        <option>Claim</option>
+                        <option>Renewal</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             VEHICLE INFORMATION
+        ========================== -->
+
+        <div class="card form-section">
+
+            <div class="section-title">
+                <i class="fas fa-car"></i>
+                Vehicle Information
+            </div>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Registration Number</label>
+                    <input type="text" placeholder="TN38AB1234">
+                </div>
+
+                <div>
+                    <label>Vehicle Type</label>
+
+                    <select>
+                        <option>Car</option>
+                        <option>Bike</option>
+                        <option>Truck</option>
+                        <option>Bus</option>
+                    </select>
+
+                </div>
+
+                <div>
+                    <label>Manufacturer</label>
+                    <input type="text" placeholder="Hyundai">
+                </div>
+
+                <div>
+                    <label>Model</label>
+                    <input type="text" placeholder="i20">
+                </div>
+
+                <div>
+                    <label>Manufacturing Year</label>
+                    <input type="number" placeholder="2024">
+                </div>
+
+                <div>
+                    <label>Color</label>
+                    <input type="text" placeholder="White">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             OWNER INFORMATION
+        ========================== -->
+
+        <div class="card form-section">
+
+            <div class="section-title">
+                <i class="fas fa-user"></i>
+                Owner Information
+            </div>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Owner Name</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="tel">
+                </div>
+
+                <div>
+                    <label>Email Address</label>
+                    <input type="email">
+                </div>
+
+                <div>
+                    <label>City</label>
+                    <input type="text">
+                </div>
+
+                <div class="full-width">
+                    <label>Address</label>
+                    <textarea rows="4"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             INSURANCE INFORMATION
+        ========================== -->
+
+        <div class="card form-section">
+
+            <div class="section-title">
+                <i class="fas fa-shield-alt"></i>
+                Insurance Information
+            </div>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Insurance Company</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <label>Policy Number</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <label>Policy Start Date</label>
+                    <input type="date">
+                </div>
+
+                <div>
+                    <label>Policy End Date</label>
+                    <input type="date">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             VEHICLE INSPECTION
+        ========================== -->
+
+        <div class="card form-section">
+
+            <div class="section-title">
+                <i class="fas fa-search"></i>
+                Vehicle Inspection
+            </div>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Odometer Reading (KM)</label>
+                    <input type="number">
+                </div>
+
+                <div>
+                    <label>Damage Severity</label>
+
+                    <select>
+                        <option>Minor</option>
+                        <option>Moderate</option>
+                        <option>Major</option>
+                        <option>Total Loss</option>
+                    </select>
+
+                </div>
+
+                <div class="full-width">
+                    <label>Damage Description</label>
+                    <textarea rows="5"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card form-section">
+
+    <div class="section-title">
+        <i class="fas fa-car-side"></i>
+        Damage Location
+    </div>
+
+    <div class="damage-grid">
+
+        <button type="button" class="damage-part">
+            Front
+        </button>
+
+        <button type="button" class="damage-part">
+            Rear
+        </button>
+
+        <button type="button" class="damage-part">
+            Left Side
+        </button>
+
+        <button type="button" class="damage-part">
+            Right Side
+        </button>
+
+        <button type="button" class="damage-part">
+            Roof
+        </button>
+
+        <button type="button" class="damage-part">
+            Underbody
+        </button>
+
+    </div>
+
+</div>
+
+        <div class="card form-section">
+
+    <div class="section-title">
+        <i class="fas fa-list-check"></i>
+        Required Documents
+    </div>
+
+    <div class="document-checklist">
+
+        <label>
+            <input type="checkbox">
+            Registration Certificate (RC)
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Insurance Policy Copy
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Driving License
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Claim Form
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Vehicle Photos
+        </label>
+
+    </div>
+
+</div>
+        <!-- =========================
+             DOCUMENT UPLOADS
+        ========================== -->
+
+        <div class="card form-section">
+
+            <div class="section-title">
+                <i class="fas fa-cloud-upload-alt"></i>
+                Document Uploads
+            </div>
+
+            <div class="upload-grid">
+
+                <label class="upload-box">
+
+                    <input type="file" hidden>
+
+                    <i class="fas fa-id-card"></i>
+
+                    <span>Upload RC</span>
+
+                </label>
+
+                <label class="upload-box">
+
+                    <input type="file" hidden>
+
+                    <i class="fas fa-file-contract"></i>
+
+                    <span>Insurance Copy</span>
+
+                </label>
+
+                <label class="upload-box">
+
+                    <input type="file" hidden>
+
+                    <i class="fas fa-address-card"></i>
+
+                    <span>Driving License</span>
+
+                </label>
+
+                <label class="upload-box">
+
+                    <input type="file" hidden>
+
+                    <i class="fas fa-camera"></i>
+
+                    <span>Vehicle Photos</span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="card form-section">
+
+    <div class="section-title">
+        <i class="fas fa-images"></i>
+        Vehicle Photo Gallery
+    </div>
+
+    <input
+        type="file"
+        id="vehiclePhotos"
+        multiple
+        accept="image/*"
+    >
+
+    <div id="photoPreview"
+         class="photo-preview-grid">
+
+    </div>
+
+</div>
+
+
+        <!-- =========================
+             ASSESSOR REMARKS
+        ========================== -->
+
+        <div class="card form-section">
+
+            <div class="section-title">
+                <i class="fas fa-comment-alt"></i>
+                Assessor Remarks
+            </div>
+
+            <textarea rows="5"
+                placeholder="Enter survey observations, assessor remarks, recommendations and notes..."></textarea>
+
+        </div>
+
+        <div id="formMessage"></div>
+
+
+        <!-- =========================
+             ACTION BUTTONS
+        ========================== -->
+
+        <div class="command-bar">
+
+    <div class="command-status">
+
+        <span>
+            Status:
+        </span>
+
+        <strong id="surveyStatusText">
+            Draft
+        </strong>
+
+    </div>
+
+    <div class="command-actions">
+
+        <button
+            type="button"
+            id="saveDraftBtn"
+            class="action-button draft-btn">
+
+            <i class="fas fa-save"></i>
+            Save Draft
+
+        </button>
+
+        <button
+            type="submit"
+            id="submitSurveyBtn"
+            class="action-button submit-btn">
+
+            <i class="fas fa-paper-plane"></i>
+            Submit Survey
+
+        </button>
+
+    </div>
+
+</div>
+
+    </main>
+
+    <!-- Scripts -->
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/survey-new.js"></script>
+
+</body>
+
+</html>
