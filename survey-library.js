@@ -86,6 +86,8 @@ function renderSurveys(){
         "surveyContainer"
     );
 
+    if(!container) return;
+
     container.innerHTML = "";
 
     surveys.forEach(survey => {
@@ -97,307 +99,81 @@ function renderSurveys(){
             <div class="vehicle-header">
 
                 <div>
-
-                    <strong>
-                        ${survey.vehicleNo}
-                    </strong>
-
+                    <strong>${survey.vehicleNo}</strong>
                 </div>
 
                 <div>
-
                     ${survey.surveyNo}
-
                 </div>
 
                 <div>
-
                     ${getCompletionHTML(
-                    survey.completion
+                        survey.completion
                     )}
-
                 </div>
 
                 <button
-                    class="open-btn open">
-                    <i class="fas fa-chevron-down"></i>
+                    class="open-btn open"
+                    data-vehicle="${survey.vehicleNo}"
+                    data-survey="${survey.surveyNo}"
+                    data-completion="${survey.completion}">
+
+                    <i class="fas fa-folder-open"></i>
                     Open
 
                 </button>
 
             </div>
 
-            <div class="vehicle-content">
-
-                <!-- REPORTS -->
-
-                <div class="folder">
-
-                    <div class="folder-header">
-
-                        <span>
-                            📁 Reports
-                        </span>
-
-                        <i class="fas fa-chevron-down"></i>
-
-                    </div>
-
-                    <div class="folder-content">
-
-                        <div class="folder-item">
-
-                            Interim 1
-
-                            <button
-                                class="edit-btn">
-
-                                Edit
-
-                            </button>
-
-                        </div>
-
-                        <div class="folder-item">
-
-                            Interim 2
-
-                            <button
-                                class="edit-btn">
-
-                                Edit
-
-                            </button>
-
-                        </div>
-
-                        <div class="folder-item">
-
-                            Final Report
-
-                            <button
-                                class="edit-btn">
-
-                                Edit
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- LETTERS -->
-
-                <div class="folder">
-
-                    <div class="folder-header">
-
-                        <span>
-                            📁 Letters
-                        </span>
-
-                        <i class="fas fa-chevron-down"></i>
-
-                    </div>
-
-                    <div class="folder-content">
-
-                        <div class="folder-item">
-
-                            LOI 1
-
-                            <button
-                                class="edit-btn">
-
-                                Edit
-
-                            </button>
-
-                        </div>
-
-                        <div class="folder-item">
-
-                            LOR 1
-
-                            <button
-                                class="edit-btn">
-
-                                Edit
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- DOCUMENTS -->
-
-                <div class="folder">
-
-                    <div class="folder-header">
-
-                        <span>
-                            📁 Documents
-                        </span>
-
-                        <i class="fas fa-chevron-down"></i>
-
-                    </div>
-
-                    <div class="folder-content">
-
-                        <div class="sub-folder">
-
-                            <div class="sub-folder-header">
-
-                                📁 Vehicle Images
-
-                            </div>
-
-                            <div class="sub-folder-content">
-
-                                <div class="folder-item">
-
-                                    Front.jpg
-
-                                    <button class="edit-btn">
-                                        Edit
-                                    </button>
-
-                                </div>
-
-                                <div class="folder-item">
-
-                                    Rear.jpg
-
-                                    <button class="edit-btn">
-                                        Edit
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="sub-folder">
-
-                            <div class="sub-folder-header">
-
-                                📁 Vehicle Documents
-
-                            </div>
-
-                            <div class="sub-folder-content">
-
-                                <div class="folder-item">
-
-                                    RC.pdf
-
-                                    <button class="edit-btn">
-                                        Edit
-                                    </button>
-
-                                </div>
-
-                                <div class="folder-item">
-
-                                    Insurance.pdf
-
-                                    <button class="edit-btn">
-                                        Edit
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
 
         `;
+
     });
 
-    initializeAccordions();
 }
+document.addEventListener("click", e => {
 
-function initializeAccordions(){
+    const btn = e.target.closest(".open-btn");
 
-    document
-.querySelectorAll(".open-btn")
-.forEach(btn => {
+    if(!btn) return;
 
-    btn.addEventListener(
-        "click",
-        () => {
+    localStorage.setItem(
+        "selectedVehicle",
+        JSON.stringify({
+            vehicleNo: btn.dataset.vehicle,
+            surveyNo: btn.dataset.survey,
+            completion: btn.dataset.completion
+        })
+    );
 
-            const card =
-            btn.closest(".vehicle-card");
+    window.location.href =
+    "vehicle-library.html";
 
-            card.classList.toggle("active");
+});
+const searchInput =
+document.getElementById("searchInput");
 
-            if(card.classList.contains("active")){
+if(searchInput){
 
-                btn.innerHTML =
-                `<i class="fas fa-chevron-up"></i>
-                 Close`;
+    searchInput.addEventListener("input", e => {
 
-                btn.classList.remove("open");
-                btn.classList.add("close");
+        const value =
+        e.target.value.toLowerCase();
 
-            }
-            else{
+        document
+        .querySelectorAll(".vehicle-card")
+        .forEach(card => {
 
-                btn.innerHTML =
-                `<i class="fas fa-chevron-down"></i>
-                 Open`;
-
-                btn.classList.remove("close");
-                btn.classList.add("open");
-
-            }
+            card.style.display =
+            card.innerText
+            .toLowerCase()
+            .includes(value)
+            ? "block"
+            : "none";
 
         });
-});
 
-    document
-    .querySelectorAll(".folder-header")
-    .forEach(folder => {
-
-        folder.addEventListener(
-            "click",
-            () => {
-
-                folder.parentElement
-                      .classList
-                      .toggle("active");
-
-            });
     });
 
-    document
-    .querySelectorAll(".sub-folder-header")
-    .forEach(folder => {
-
-        folder.addEventListener(
-            "click",
-            () => {
-
-                folder.parentElement
-                      .classList
-                      .toggle("active");
-
-            });
-    });
 }
