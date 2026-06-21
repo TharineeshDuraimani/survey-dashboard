@@ -35,5 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
     }
+    document
+    .querySelectorAll(".sidebar a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            sidebar.classList.remove("show");
+            overlay.classList.remove("show");
+
+    });
+
+});
 
 });
