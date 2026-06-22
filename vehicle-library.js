@@ -61,6 +61,14 @@ document.getElementById("imageList");
 
 const documentList =
 document.getElementById("documentList");
+
+let imageDeleteMode = false;
+let documentDeleteMode = false;
+
+/* =========================
+   IMAGE UPLOAD
+========================= */
+
 imageUpload?.addEventListener(
 "change",
 () => {
@@ -75,17 +83,44 @@ imageUpload?.addEventListener(
         item.className =
         "uploaded-file";
 
-        item.textContent =
-        file.name;
+        item.innerHTML = `
+
+        <div class="file-card">
+
+            <input
+                type="checkbox"
+                class="delete-checkbox">
+
+            <img
+                src="${URL.createObjectURL(file)}"
+                class="image-thumbnail">
+
+            <div class="file-name">
+                ${file.name}
+            </div>
+
+        </div>
+
+        `;
 
         item.addEventListener(
         "click",
-        () => {
+        (e) => {
 
-            const url =
-            URL.createObjectURL(file);
+            if(imageDeleteMode){
+                return;
+            }
 
-            openImage(url);
+            if(
+            e.target.classList.contains(
+            "delete-checkbox"
+            )){
+                return;
+            }
+
+            openImage(
+            URL.createObjectURL(file)
+            );
 
         });
 
@@ -94,6 +129,11 @@ imageUpload?.addEventListener(
     });
 
 });
+
+/* =========================
+   DOCUMENT UPLOAD
+========================= */
+
 documentUpload?.addEventListener(
 "change",
 () => {
@@ -108,17 +148,78 @@ documentUpload?.addEventListener(
         item.className =
         "uploaded-file";
 
-        item.textContent =
-        file.name;
+        const extension =
+        file.name
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+        let icon =
+        "fa-file";
+
+        if(extension === "pdf"){
+
+            icon =
+            "fa-file-pdf";
+
+        }else if(
+        ["doc","docx"]
+        .includes(extension)){
+
+            icon =
+            "fa-file-word";
+
+        }else if(
+        ["xls","xlsx"]
+        .includes(extension)){
+
+            icon =
+            "fa-file-excel";
+
+        }else if(
+        ["jpg","jpeg","png","gif","webp"]
+        .includes(extension)){
+
+            icon =
+            "fa-image";
+        }
+
+        item.innerHTML = `
+
+        <div class="file-card">
+
+            <input
+                type="checkbox"
+                class="delete-checkbox">
+
+            <i class="fas ${icon} file-icon"></i>
+
+            <div class="file-name">
+                ${file.name}
+            </div>
+
+        </div>
+
+        `;
 
         item.addEventListener(
         "click",
-        () => {
+        (e) => {
 
-            const url =
-            URL.createObjectURL(file);
+            if(documentDeleteMode){
+                return;
+            }
 
-            openDocument(url);
+            if(
+            e.target.classList.contains(
+            "delete-checkbox"
+            )){
+                return;
+            }
+
+            openDocument(
+            URL.createObjectURL(file)
+            );
 
         });
 
@@ -127,66 +228,234 @@ documentUpload?.addEventListener(
     });
 
 });
+
+/* =========================
+   PREVIEW
+========================= */
+
 const previewModal =
-document.getElementById("previewModal");
+document.getElementById(
+"previewModal"
+);
 
 const previewContent =
-document.getElementById("previewContent");
+document.getElementById(
+"previewContent"
+);
+
 function openImage(url){
 
     previewContent.innerHTML =
 
-    `<img src="${url}"
-          class="preview-image">`;
+    `<img
+        src="${url}"
+        class="preview-image">`;
 
     previewModal.classList.add(
     "active"
     );
 }
+
 function openDocument(url){
 
     previewContent.innerHTML =
 
-    `<iframe src="${url}"
-             class="preview-pdf">
+    `<iframe
+        src="${url}"
+        class="preview-pdf">
      </iframe>`;
 
     previewModal.classList.add(
     "active"
     );
 }
+
 document
-.getElementById("closePreview")
-.addEventListener("click",()=>{
+.getElementById(
+"closePreview"
+)
+.addEventListener(
+"click",
+()=>{
 
     previewModal.classList.remove(
     "active"
     );
 
 });
-document
-.getElementById("saveImagesBtn")
-.addEventListener("click",()=>{
 
-    alert("Images saved");
+/* =========================
+   SAVE BUTTONS
+========================= */
+
+document
+.getElementById(
+"saveImagesBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    alert(
+    "Images saved"
+    );
+
 });
-document
-.getElementById("saveDocumentsBtn")
-.addEventListener("click",()=>{
 
-    alert("Documents saved");
+document
+.getElementById(
+"saveDocumentsBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    alert(
+    "Documents saved"
+    );
+
 });
-document
-.getElementById("deleteImagesBtn")
-.addEventListener("click",()=>{
 
-    imageList.innerHTML = "";
-    imageUpload.value = "";
+/* =========================
+   DELETE IMAGES
+========================= */
+
+document
+.getElementById(
+"deleteImagesBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    const btn =
+    document.getElementById(
+    "deleteImagesBtn"
+    );
+
+    if(!imageDeleteMode){
+
+        imageDeleteMode = true;
+
+        imageList.classList.add(
+        "delete-mode"
+        );
+
+        btn.textContent =
+        "Delete Selected";
+
+        return;
+    }
+
+    const checkedFiles =
+    imageList.querySelectorAll(
+    ".delete-checkbox:checked"
+    );
+
+    if(!checkedFiles.length){
+
+        alert(
+        "Select image(s) to delete"
+        );
+
+        return;
+    }
+
+    if(
+    !confirm(
+    `Delete ${checkedFiles.length} image(s)?`
+    )
+    ){
+        return;
+    }
+
+    checkedFiles.forEach(cb=>{
+
+        cb.closest(
+        ".uploaded-file"
+        ).remove();
+
+    });
+
+    imageDeleteMode = false;
+
+    imageList.classList.remove(
+    "delete-mode"
+    );
+
+    btn.textContent =
+    "Delete Images";
+
 });
-document
-.getElementById("deleteDocumentsBtn")
-.addEventListener("click",()=>{
 
-    documentList.innerHTML = "";
-    documentUpload.value = "";
+/* =========================
+   DELETE DOCUMENTS
+========================= */
+
+document
+.getElementById(
+"deleteDocumentsBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    const btn =
+    document.getElementById(
+    "deleteDocumentsBtn"
+    );
+
+    if(!documentDeleteMode){
+
+        documentDeleteMode = true;
+
+        documentList.classList.add(
+        "delete-mode"
+        );
+
+        btn.textContent =
+        "Delete Selected";
+
+        return;
+    }
+
+    const checkedFiles =
+    documentList.querySelectorAll(
+    ".delete-checkbox:checked"
+    );
+
+    if(!checkedFiles.length){
+
+        alert(
+        "Select document(s) to delete"
+        );
+
+        return;
+    }
+
+    if(
+    !confirm(
+    `Delete ${checkedFiles.length} document(s)?`
+    )
+    ){
+        return;
+    }
+
+    checkedFiles.forEach(cb=>{
+
+        cb.closest(
+        ".uploaded-file"
+        ).remove();
+
+    });
+
+    documentDeleteMode = false;
+
+    documentList.classList.remove(
+    "delete-mode"
+    );
+
+    btn.textContent =
+    "Delete Documents";
+
 });
