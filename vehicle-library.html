@@ -95,7 +95,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <div class="folder-header">
 
-        <span>📁 Documents</span>
+        <span>📷 Vehicle Images</span>
 
         <i class="fas fa-chevron-down"></i>
 
@@ -103,12 +103,62 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <div class="folder-content">
 
-        <div class="file-item">
-            Vehicle Images
+        <div id="imageList"></div>
+
+        <input
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+            multiple
+        >
+
+        <div class="action-buttons">
+
+            <button id="saveImagesBtn">
+                Save Images
+            </button>
+
+            <button id="deleteImagesBtn">
+                Delete Images
+            </button>
+
         </div>
 
-        <div class="file-item">
-            Vehicle Documents
+    </div>
+
+</div>
+
+<div class="folder">
+
+    <div class="folder-header">
+
+        <span>📄 Vehicle Documents</span>
+
+        <i class="fas fa-chevron-down"></i>
+
+    </div>
+
+    <div class="folder-content">
+
+        <div id="documentList"></div>
+
+        <input
+            type="file"
+            id="documentUpload"
+            accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
+            multiple
+        >
+
+        <div class="action-buttons">
+
+            <button id="saveDocumentsBtn">
+                Save Documents
+            </button>
+
+            <button id="deleteDocumentsBtn">
+                Delete Documents
+            </button>
+
         </div>
 
     </div>
@@ -116,7 +166,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </main>
+<div id="previewModal" class="preview-modal">
 
+    <div class="preview-container">
+
+        <button id="closePreview" class="close-preview">
+
+            <i class="fas fa-times"></i>
+
+        </button>
+
+        <div id="previewContent"></div>
+
+    </div>
+
+</div>
 <script src="vehicle-library.js"></script>
 
 </body>
