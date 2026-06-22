@@ -219,3 +219,116 @@
     background:white;
     border-radius:12px;
 }
+.file-checkbox{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    cursor:pointer;
+}
+
+.file-checkbox input{
+
+    width:18px;
+    height:18px;
+
+    cursor:pointer;
+}
+#imageList,
+#documentList{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(140px,1fr));
+
+    gap:15px;
+
+    margin-top:15px;
+}
+.file-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:20px;
+
+    min-height:140px;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:16px;
+
+    background:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+.file-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+
+    background:#f8fafc;
+}
+.delete-checkbox{
+
+    display:none;
+
+    position:absolute;
+
+    top:10px;
+    left:10px;
+
+    width:18px;
+    height:18px;
+
+    cursor:pointer;
+}
+.delete-mode .delete-checkbox{
+
+    display:block;
+}
+.file-icon{
+
+    font-size:42px;
+
+    color:var(--primary);
+}
+.file-name{
+
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    word-break:break-word;
+
+    max-width:100%;
+}
+.image-thumbnail{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    border:1px solid #e2e8f0;
+}
