@@ -109,41 +109,9 @@
 
         <!-- PAGE HEADER -->
 
-        <section class="page-header">
+        <section class="page-header quick-update-header">
 
-            <h1>New Vehicle Survey</h1>
-
-            <p>
-                Create and manage insurance vehicle surveys
-            </p>
-
-        </section>
-
-        <section class="status-banner">
-
-    <div class="status-info">
-
-        <div class="status-badge draft">
-            Draft
-        </div>
-
-        <div>
-            <h3>Survey Status</h3>
-            <p>Current survey is being prepared.</p>
-        </div>
-
-    </div>
-
-    <div class="survey-meta">
-
-        <div>
-            <small>Survey ID</small>
-            <strong id="generatedSurveyId">
-                Loading...
-            </strong>
-        </div>
-
-    </div>
+    <h1>Quick Update</h1>
 
 </section>
 
@@ -151,29 +119,26 @@
              PROGRESS TRACKER
         ========================== -->
 
-        <section class="survey-progress">
+        <section class="survey-progress-bar-container">
 
-            <div class="progress-step active">
-                <span>1</span>
-                <p>Survey</p>
-            </div>
+    <div class="progress-bar-header">
 
-            <div class="progress-step">
-                <span>2</span>
-                <p>Vehicle</p>
-            </div>
+        <span>Completion Progress</span>
 
-            <div class="progress-step">
-                <span>3</span>
-                <p>Owner</p>
-            </div>
+        <span id="progressPercent">0%</span>
 
-            <div class="progress-step">
-                <span>4</span>
-                <p>Documents</p>
-            </div>
+    </div>
 
-        </section>
+    <div class="progress-track">
+
+        <div
+            id="surveyProgressBar"
+            class="progress-fill">
+        </div>
+
+    </div>
+
+</section>
 
         <!-- =========================
              SURVEY INFORMATION
@@ -181,387 +146,1162 @@
 
         <div class="card form-section">
 
-            <div class="section-title">
-                <i class="fas fa-file-alt"></i>
-                Survey Information
-            </div>
-
-            <div class="form-grid">
-
-                <div>
-                    <label>Survey ID</label>
-                    <input type="text" id="surveyId" readonly>
-                </div>
-
-                <div>
-                    <label>Survey Date</label>
-                    <input type="date">
-                </div>
-
-                <div>
-                    <label>Assessor Name</label>
-                    <input type="text" placeholder="Enter Assessor Name">
-                </div>
-
-                <div>
-                    <label>Survey Type</label>
-
-                    <select>
-                        <option>Accident</option>
-                        <option>Claim</option>
-                        <option>Renewal</option>
-                    </select>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- =========================
-             VEHICLE INFORMATION
-        ========================== -->
-
-        <div class="card form-section">
-
-            <div class="section-title">
-                <i class="fas fa-car"></i>
-                Vehicle Information
-            </div>
-
-            <div class="form-grid">
-
-                <div>
-                    <label>Registration Number</label>
-                    <input type="text" placeholder="TN38AB1234">
-                </div>
-
-                <div>
-                    <label>Vehicle Type</label>
-
-                    <select>
-                        <option>Car</option>
-                        <option>Bike</option>
-                        <option>Truck</option>
-                        <option>Bus</option>
-                    </select>
-
-                </div>
-
-                <div>
-                    <label>Manufacturer</label>
-                    <input type="text" placeholder="Hyundai">
-                </div>
-
-                <div>
-                    <label>Model</label>
-                    <input type="text" placeholder="i20">
-                </div>
-
-                <div>
-                    <label>Manufacturing Year</label>
-                    <input type="number" placeholder="2024">
-                </div>
-
-                <div>
-                    <label>Color</label>
-                    <input type="text" placeholder="White">
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- =========================
-             OWNER INFORMATION
-        ========================== -->
-
-        <div class="card form-section">
-
-            <div class="section-title">
-                <i class="fas fa-user"></i>
-                Owner Information
-            </div>
-
-            <div class="form-grid">
-
-                <div>
-                    <label>Owner Name</label>
-                    <input type="text">
-                </div>
-
-                <div>
-                    <label>Mobile Number</label>
-                    <input type="tel">
-                </div>
-
-                <div>
-                    <label>Email Address</label>
-                    <input type="email">
-                </div>
-
-                <div>
-                    <label>City</label>
-                    <input type="text">
-                </div>
-
-                <div class="full-width">
-                    <label>Address</label>
-                    <textarea rows="4"></textarea>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- =========================
-             INSURANCE INFORMATION
-        ========================== -->
-
-        <div class="card form-section">
-
-            <div class="section-title">
-                <i class="fas fa-shield-alt"></i>
-                Insurance Information
-            </div>
-
-            <div class="form-grid">
-
-                <div>
-                    <label>Insurance Company</label>
-                    <input type="text">
-                </div>
-
-                <div>
-                    <label>Policy Number</label>
-                    <input type="text">
-                </div>
-
-                <div>
-                    <label>Policy Start Date</label>
-                    <input type="date">
-                </div>
-
-                <div>
-                    <label>Policy End Date</label>
-                    <input type="date">
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- =========================
-             VEHICLE INSPECTION
-        ========================== -->
-
-        <div class="card form-section">
-
-            <div class="section-title">
-                <i class="fas fa-search"></i>
-                Vehicle Inspection
-            </div>
-
-            <div class="form-grid">
-
-                <div>
-                    <label>Odometer Reading (KM)</label>
-                    <input type="number">
-                </div>
-
-                <div>
-                    <label>Damage Severity</label>
-
-                    <select>
-                        <option>Minor</option>
-                        <option>Moderate</option>
-                        <option>Major</option>
-                        <option>Total Loss</option>
-                    </select>
-
-                </div>
-
-                <div class="full-width">
-                    <label>Damage Description</label>
-                    <textarea rows="5"></textarea>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="card form-section">
+    <div class="section-header">
 
     <div class="section-title">
-        <i class="fas fa-car-side"></i>
-        Damage Location
+
+        <i class="fas fa-file-alt"></i>
+
+        Section 1 : Survey Details
+
     </div>
 
-    <div class="damage-grid">
+    <button
+        type="button"
+        class="section-toggle">
 
-        <button type="button" class="damage-part">
-            Front
-        </button>
+        <i class="fas fa-chevron-down"></i>
 
-        <button type="button" class="damage-part">
-            Rear
-        </button>
+    </button>
 
-        <button type="button" class="damage-part">
-            Left Side
-        </button>
+</div>
 
-        <button type="button" class="damage-part">
-            Right Side
-        </button>
+<div class="section-content">
 
-        <button type="button" class="damage-part">
-            Roof
-        </button>
+    <div class="form-grid">
 
-        <button type="button" class="damage-part">
-            Underbody
-        </button>
+        <!-- Survey Report No -->
+
+        <div>
+
+            <label>Survey Report No</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+        <!-- Survey Conducted Date -->
+
+        <div>
+
+            <label>Survey Conducted Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+    <label>Survey Type</label>
+
+    <select
+        class="track-progress">
+
+        <option value="">
+            Select Survey Type
+        </option>
+
+        <option value="Final">
+            Final
+        </option>
+
+        <option value="Spot">
+            Spot
+        </option>
+
+        <option value="Reinspection">
+            Reinspection
+        </option>
+
+    </select>
+
+</div>
+
+        <!-- Registration Number -->
+
+        <div class="full-width">
+
+            <label>Registration Number</label>
+
+            <div class="registration-grid">
+
+                <input
+                    maxlength="2"
+                    placeholder="TN"
+                    class="track-progress uppercase-input">
+
+                <input
+                    maxlength="2"
+                    placeholder="32"
+                    class="track-progress uppercase-input">
+
+                <input
+                    maxlength="2"
+                    placeholder="DX"
+                    class="track-progress uppercase-input">
+
+                <input
+                    maxlength="4"
+                    placeholder="6464"
+                    class="track-progress uppercase-input">
+
+            </div>
+
+        </div>
+
+        <!-- Place of Survey -->
+
+        <div class="full-width">
+
+            <label>Place of Survey</label>
+
+<input
+    type="text"
+    id="workshopSearch"
+    placeholder="Search Garage Code or Workshop Name">
+
+<div id="workshopResults"></div>
+
+<input
+    type="hidden"
+    id="selectedGarageCode">
+
+<textarea
+    id="selectedWorkshopAddress"
+    readonly>
+</textarea>
+        </div>
+
+        <!-- Appointed By -->
+
+        <div class="full-width">
+
+            <label>Appointed By</label>
+
+            <div class="appointed-grid">
+
+                <input
+                    type="text"
+                    class="track-progress">
+
+                <input
+                    type="text"
+                    class="track-progress">
+
+                <input
+                    type="text"
+                    class="track-progress">
+
+                <input
+                    type="text"
+                    class="track-progress">
+
+            </div>
+
+        </div>
 
     </div>
 
 </div>
 
-        <div class="card form-section">
+</div>
+
+
+
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
 
     <div class="section-title">
-        <i class="fas fa-list-check"></i>
-        Required Documents
+
+        <i class="fas fa-file-alt"></i>
+
+        Section 2 : Loss Details
+
     </div>
 
-    <div class="document-checklist">
+    <button
+        type="button"
+        class="section-toggle">
 
-        <label>
-            <input type="checkbox">
-            Registration Certificate (RC)
-        </label>
+        <i class="fas fa-chevron-down"></i>
 
-        <label>
-            <input type="checkbox">
-            Insurance Policy Copy
-        </label>
+    </button>
 
-        <label>
-            <input type="checkbox">
-            Driving License
-        </label>
+</div>
 
-        <label>
-            <input type="checkbox">
-            Claim Form
-        </label>
+<div class="section-content">
 
-        <label>
-            <input type="checkbox">
-            Vehicle Photos
-        </label>
+    <label>
+
+        Loss Details
+
+        <button
+            type="button"
+            id="addLossBtn"
+            class="mini-add-btn">
+
+            <i class="fas fa-plus"></i>
+            Add Loss
+
+        </button>
+
+    </label>
+
+    <div id="lossDetailsContainer">
+
+        <div class="loss-entry">
+
+    <div class="loss-header">
+
+        <h4 class="loss-heading">
+            Loss Details 1
+        </h4>
+
+    </div>
+
+    <div class="loss-grid">
+
+        <div>
+
+            <label class="loss-date-label">
+                Date of Loss 1
+            </label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label class="loss-time-label">
+                Time of Loss 1
+            </label>
+
+            <input
+                type="time"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label class="loss-place-label">
+                Place of Loss 1
+            </label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
 
     </div>
 
 </div>
-        <!-- =========================
-             DOCUMENT UPLOADS
-        ========================== -->
 
-        <div class="card form-section">
 
-            <div class="section-title">
-                <i class="fas fa-cloud-upload-alt"></i>
-                Document Uploads
             </div>
 
-            <div class="upload-grid">
+        </div>
 
-                <label class="upload-box">
+    </div>
 
-                    <input type="file" hidden>
+</div>
 
-                    <i class="fas fa-id-card"></i>
 
-                    <span>Upload RC</span>
+</div>
 
-                </label>
 
-                <label class="upload-box">
 
-                    <input type="file" hidden>
 
-                    <i class="fas fa-file-contract"></i>
 
-                    <span>Insurance Copy</span>
+<div class="card form-section">
 
-                </label>
+    <div class="section-header">
 
-                <label class="upload-box">
+    <div class="section-title">
 
-                    <input type="file" hidden>
+        <i class="fas fa-file-alt"></i>
 
-                    <i class="fas fa-address-card"></i>
+        Section 3 : Insurance Details
 
-                    <span>Driving License</span>
+    </div>
 
-                </label>
+    <button
+        type="button"
+        class="section-toggle">
 
-                <label class="upload-box">
+        <i class="fas fa-chevron-down"></i>
 
-                    <input type="file" hidden>
+    </button>
 
-                    <i class="fas fa-camera"></i>
+</div>
 
-                    <span>Vehicle Photos</span>
+<div class="section-content">
 
+    <div class="form-grid">
+
+        <!-- Insured Name -->
+
+        <div>
+
+            <label>Insured Name</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Insured Name">
+
+        </div>
+
+        <!-- Policy Number -->
+
+        <div>
+
+            <label>Policy Number</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Policy Number">
+
+        </div>
+
+        <!-- Claim Number -->
+
+        <div>
+
+            <label>Claim Number</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Claim Number">
+
+        </div>
+
+        <!-- IDV -->
+
+        <div>
+
+            <label>IDV (₹)</label>
+
+            <input
+                type="number"
+                min="0"
+                class="track-progress"
+                placeholder="Enter IDV Amount">
+
+        </div>
+
+        <!-- Policy Start Date -->
+
+        <div>
+
+            <label>Policy Start Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <!-- Policy End Date -->
+
+        <div>
+
+            <label>Policy End Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <!-- Mobile Number -->
+
+        <div>
+
+            <label>Mobile Number</label>
+
+            <input
+                type="tel"
+                id="insuredMobile"
+                maxlength="10"
+                class="track-progress numeric-only"
+                placeholder="10 Digit Mobile Number">
+
+        </div>
+
+        <!-- Pincode -->
+
+        <div>
+
+            <label>Pincode</label>
+
+            <input
+                type="text"
+                id="insuredPincode"
+                maxlength="6"
+                class="track-progress numeric-only"
+                placeholder="6 Digit Pincode">
+
+        </div>
+
+        <!-- Address -->
+
+        <div class="full-width">
+
+            <label>Address</label>
+
+            <textarea
+                rows="4"
+                class="track-progress"
+                placeholder="Enter Complete Address"></textarea>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+    <div class="section-title">
+
+        <i class="fas fa-file-alt"></i>
+
+        Section 4 : Registration Certificate Details
+
+    </div>
+
+    <button
+        type="button"
+        class="section-toggle">
+
+        <i class="fas fa-chevron-down"></i>
+
+    </button>
+
+</div>
+
+<div class="section-content">
+
+    <div class="form-grid">
+
+        <!-- Registered Owner Name -->
+
+        <div>
+
+            <label>Registered Owner Name</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Registered Owner Name">
+
+        </div>
+
+        <!-- Physically Verified -->
+
+        <div>
+
+            <label>Physically Verified</label>
+
+            <div class="checkbox-field">
+
+                <input
+                    type="checkbox"
+                    id="physicallyVerified"
+                    class="track-progress-checkbox">
+
+                <label for="physicallyVerified">
+                    Verified
                 </label>
 
             </div>
 
         </div>
 
-        <div class="card form-section">
+        <!-- Engine Number -->
+
+        <div>
+
+            <label>Engine Number</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Engine Number">
+
+        </div>
+
+        <!-- Chassis Number -->
+
+        <div>
+
+            <label>Chassis Number</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Chassis Number">
+
+        </div>
+
+        <!-- Make -->
+
+        <div>
+
+            <label>Make</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Manufacturer Name">
+
+        </div>
+
+        <!-- Model -->
+
+        <div>
+
+            <label>Model</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Vehicle Model">
+
+        </div>
+
+        <!-- Type of Body -->
+
+        <div>
+
+            <label>Type of Body</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Hatchback / Sedan / SUV">
+
+        </div>
+
+        <!-- Class of Vehicle -->
+
+        <div>
+
+            <label>Class of Vehicle</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="LMV / HMV / Transport">
+
+        </div>
+
+        <!-- Pre Accident Condition -->
+
+        <div>
+
+            <label>Pre-Accident Condition</label>
+
+            <select class="track-progress">
+
+                <option value="">
+                    Select Condition
+                </option>
+
+                <option>
+                    Excellent
+                </option>
+
+                <option>
+                    Good
+                </option>
+
+                <option>
+                    Average
+                </option>
+
+                <option>
+                    Poor
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Odometer Reading -->
+
+        <div>
+
+            <label>Odometer Reading (KM)</label>
+
+            <input
+                type="number"
+                min="0"
+                class="track-progress"
+                placeholder="Enter KM Reading">
+
+        </div>
+
+        <!-- Vehicle Color -->
+
+        <div>
+
+            <label>Vehicle Color</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Vehicle Color">
+
+        </div>
+
+        <!-- Type of Fuel -->
+
+        <div>
+
+            <label>Type of Fuel</label>
+
+            <select class="track-progress">
+
+                <option value="">
+                    Select Fuel Type
+                </option>
+
+                <option>
+                    Petrol
+                </option>
+
+                <option>
+                    Diesel
+                </option>
+
+                <option>
+                    CNG
+                </option>
+
+                <option>
+                    LPG
+                </option>
+
+                <option>
+                    Electric
+                </option>
+
+                <option>
+                    Hybrid
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
 
     <div class="section-title">
-        <i class="fas fa-images"></i>
-        Vehicle Photo Gallery
+
+        <i class="fas fa-file-alt"></i>
+
+        Section 5 : FIR Details
+
+
     </div>
+
+    <button
+        type="button"
+        class="section-toggle">
+
+        <i class="fas fa-chevron-down"></i>
+
+    </button>
+
+</div>
+
+<div class="section-content">
+
+    <div class="form-grid">
+
+        <!-- FIR / GDR No -->
+
+        <div>
+
+            <label>FIR / GDR No</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+        <!-- FIR Date -->
+
+        <div>
+
+            <label>FIR Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <!-- Police Station -->
+
+        <div>
+
+            <label>Police Station</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+        <!-- TPPD -->
+
+        <div>
+
+            <label>TPPD (₹)</label>
+
+            <input
+                type="number"
+                min="0"
+                class="track-progress">
+
+        </div>
+
+        <!-- Charged U/S MVA -->
+
+        <div>
+
+            <label>Charged U/S Motor Vehicle Act</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Sections">
+
+        </div>
+
+        <!-- Charged U/S IPC -->
+
+        <div>
+
+            <label>Charged U/S IPC</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Sections">
+
+        </div>
+
+        <!-- Driver Without License -->
+
+        <div>
+
+            <label>Whether Driver Without License?</label>
+
+            <select
+                class="track-progress conditional-select"
+                data-target="driverLicenseRemarks">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="No">
+                    No
+                </option>
+
+                <option value="Yes">
+                    Yes
+                </option>
+
+            </select>
+
+        </div>
+
+        <div
+            id="driverLicenseRemarks"
+            class="conditional-field">
+
+            <label>Remarks</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Remarks">
+
+        </div>
+
+        <!-- Previous Police Records -->
+
+        <div>
+
+            <label>Any Previous Police Records?</label>
+
+            <select
+                class="track-progress conditional-select"
+                data-target="policeRecordRemarks">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="No">
+                    No
+                </option>
+
+                <option value="Yes">
+                    Yes
+                </option>
+
+            </select>
+
+        </div>
+
+        <div
+            id="policeRecordRemarks"
+            class="conditional-field">
+
+            <label>Remarks</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Remarks">
+
+        </div>
+
+        <!-- TP Injury -->
+
+        <div>
+
+            <label>Is There Any TP Injury?</label>
+
+            <select
+                class="track-progress conditional-select"
+                data-target="tpInjuryRemarks">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="No">
+                    No
+                </option>
+
+                <option value="Yes">
+                    Yes
+                </option>
+
+            </select>
+
+        </div>
+
+        <div
+            id="tpInjuryRemarks"
+            class="conditional-field">
+
+            <label>Remarks</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Remarks">
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <i class="fas fa-clipboard-check"></i>
+
+            Section 6 : Observation
+
+        </div>
+
+        <button
+            type="button"
+            class="section-toggle">
+
+            <i class="fas fa-chevron-down"></i>
+
+        </button>
+
+    </div>
+
+    <div class="section-content">
+
+
+    <div class="observation-enable">
+
+        <label class="observation-switch">
 
     <input
-        type="file"
-        id="vehiclePhotos"
-        multiple
-        accept="image/*"
-    >
+        type="checkbox"
+        id="enableObservation">
 
-    <div id="photoPreview"
-         class="photo-preview-grid">
+    Enable Observations
+
+</label>
+
+        <label for="enableObservation">
+
+            Include Observation Section
+
+        </label>
+
+    </div>
+
+    <div
+        id="observationContainer"
+        class="observation-container">
+
+        <div class="observation-item">
+
+            <span>
+                Chassis number was physically verified.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                The cause and damage are relevant to the nature of accident.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                The loss or damage or liability has arisen proximately caused by the insured peril.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                None of the exclusions under the policy has caused loss or damage or liability.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                The photos taken are enclosed.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                The settlement is subject to the discretion of the insurer.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                Wherever Repairers are not authorised dealers, rates of spares were verified with authorised dealer rates.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                Supplementary estimate(s) are relevant and hence considered.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                The repaired vehicle was reinspected after repairs to my satisfaction.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                Damage not relevant to the accident are mentioned and excluded from assessment.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                Insured Declared Value is adequate compared with market value.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
+
+        <div class="observation-item">
+
+            <span>
+                No other visible damage observed with the vehicle in this accident.
+            </span>
+
+            <button
+                type="button"
+                class="observation-btn">
+
+                Add
+
+            </button>
+
+        </div>
 
     </div>
 
 </div>
-
-
-        <!-- =========================
-             ASSESSOR REMARKS
-        ========================== -->
-
-        <div class="card form-section">
-
-            <div class="section-title">
-                <i class="fas fa-comment-alt"></i>
-                Assessor Remarks
-            </div>
-
-            <textarea rows="5"
-                placeholder="Enter survey observations, assessor remarks, recommendations and notes..."></textarea>
-
-        </div>
-
-        <div id="formMessage"></div>
-
-
         <!-- =========================
              ACTION BUTTONS
         ========================== -->
