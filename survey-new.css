@@ -849,3 +849,47 @@
 
     margin-bottom:15px;
 }
+.observation-controls{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.add-all-btn{
+
+    border:none;
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+.add-all-btn:hover{
+
+    background:#15803d;
+}
+
+.add-all-btn.remove-all{
+
+    background:#dc2626;
+}
+
+.add-all-btn.remove-all:hover{
+
+    background:#b91c1c;
+}
