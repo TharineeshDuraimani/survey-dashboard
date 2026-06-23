@@ -684,6 +684,75 @@ function initializeObservationSection(){
     document.getElementById(
         "observationContainer"
     );
+    const addAllBtn =
+document.getElementById(
+    "addAllObservations"
+);
+
+    if(addAllBtn){
+
+    addAllBtn.addEventListener(
+        "click",
+        ()=>{
+
+            const buttons =
+            document.querySelectorAll(
+                ".observation-btn"
+            );
+
+            const addAll =
+            !addAllBtn.classList.contains(
+                "remove-all"
+            );
+
+            buttons.forEach(btn=>{
+
+                if(addAll){
+
+                    btn.classList.add(
+                        "added"
+                    );
+
+                    btn.innerHTML =
+                    "Added ✓";
+
+                }else{
+
+                    btn.classList.remove(
+                        "added"
+                    );
+
+                    btn.innerHTML =
+                    "Add";
+
+                }
+
+            });
+
+            if(addAll){
+
+                addAllBtn.innerHTML =
+                "Remove All";
+
+                addAllBtn.classList.add(
+                    "remove-all"
+                );
+
+            }else{
+
+                addAllBtn.innerHTML =
+                "Add All";
+
+                addAllBtn.classList.remove(
+                    "remove-all"
+                );
+
+            }
+
+        }
+    );
+
+}
 
     if(enable){
 
