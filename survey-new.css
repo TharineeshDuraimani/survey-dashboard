@@ -893,3 +893,39 @@
 
     background:#b91c1c;
 }
+.tp-remark-box{
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border:1px solid #dbeafe;
+
+    border-radius:12px;
+}
+
+.tp-remark-row{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+}
+
+.tp-remove{
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+}
