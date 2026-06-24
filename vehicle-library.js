@@ -459,3 +459,135 @@ document
     "Delete Documents";
 
 });
+initializeSurveyEditor();
+
+function initializeSurveyEditor(){
+
+    const editBtn =
+    document.getElementById(
+        "editSurveyBtn"
+    );
+
+    const saveBtn =
+    document.getElementById(
+        "saveSurveyBtn"
+    );
+
+    const cancelBtn =
+    document.getElementById(
+        "cancelSurveyBtn"
+    );
+
+    const fields =
+    document.querySelectorAll(
+        ".survey-detail-field"
+    );
+
+    let originalData = [];
+
+    if(!editBtn) return;
+
+    editBtn.addEventListener(
+        "click",
+        ()=>{
+
+            originalData =
+            [...fields].map(
+                field => field.value
+            );
+
+            fields.forEach(field=>{
+
+                field.removeAttribute(
+                    "readonly"
+                );
+
+            });
+
+            editBtn.style.display =
+            "none";
+
+            saveBtn.style.display =
+            "inline-flex";
+
+            cancelBtn.style.display =
+            "inline-flex";
+        }
+    );
+
+    cancelBtn.addEventListener(
+        "click",
+        ()=>{
+
+            fields.forEach(
+                (field,index)=>{
+
+                    field.value =
+                    originalData[index];
+
+                    field.setAttribute(
+                        "readonly",
+                        true
+                    );
+
+                }
+            );
+
+            editBtn.style.display =
+            "inline-flex";
+
+            saveBtn.style.display =
+            "none";
+
+            cancelBtn.style.display =
+            "none";
+        }
+    );
+
+    saveBtn.addEventListener(
+        "click",
+        ()=>{
+
+            const confirmSave =
+            confirm(
+                "Save changes to survey details?"
+            );
+
+            if(!confirmSave)
+                return;
+
+            fields.forEach(field=>{
+
+                field.setAttribute(
+                    "readonly",
+                    true
+                );
+
+            });
+
+            editBtn.style.display =
+            "inline-flex";
+
+            saveBtn.style.display =
+            "none";
+
+            cancelBtn.style.display =
+            "none";
+
+            alert(
+                "Survey details updated successfully."
+            );
+
+            /*
+            BACKEND LATER
+
+            fetch('/api/update-survey',{
+                method:'POST',
+                body:JSON.stringify(...)
+            });
+
+            */
+        }
+    );
+
+}
