@@ -182,11 +182,9 @@
 
         </div>
 
-        <!-- Survey Conducted Date -->
-
         <div>
 
-            <label>Survey Conducted Date</label>
+            <label>Appointment Date</label>
 
             <input
                 type="date"
@@ -221,6 +219,21 @@
 
 </div>
 
+
+        <!-- Survey Conducted Date -->
+
+        <div>
+
+            <label>Survey Conducted Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+
+        
         <!-- Registration Number -->
 
         <div class="full-width">
@@ -296,10 +309,6 @@
                     type="text"
                     class="track-progress">
 
-                <input
-                    type="text"
-                    class="track-progress">
-
             </div>
 
         </div>
@@ -323,7 +332,7 @@
 
         <i class="fas fa-file-alt"></i>
 
-        Section 2 : Loss Details
+        Section 2 : Accident Details
 
     </div>
 
@@ -504,6 +513,17 @@
 
         </div>
 
+        <div>
+
+            <label>Endosement</label>
+
+            <input
+                min="0"
+                class="track-progress"
+                placeholder="Enter IMT">
+
+        </div>
+
         <!-- Policy Start Date -->
 
         <div>
@@ -543,6 +563,20 @@
 
         </div>
 
+
+        <!-- Address -->
+
+        <div class="full-width">
+
+            <label>Address</label>
+
+            <textarea
+                rows="4"
+                class="track-progress"
+                placeholder="Enter Complete Address"></textarea>
+
+        </div>
+
         <!-- Pincode -->
 
         <div>
@@ -555,19 +589,6 @@
                 maxlength="6"
                 class="track-progress numeric-only"
                 placeholder="6 Digit Pincode">
-
-        </div>
-
-        <!-- Address -->
-
-        <div class="full-width">
-
-            <label>Address</label>
-
-            <textarea
-                rows="4"
-                class="track-progress"
-                placeholder="Enter Complete Address"></textarea>
 
         </div>
 
@@ -719,6 +740,17 @@
                 placeholder="LMV / HMV / Transport">
 
         </div>
+
+
+        <div>
+
+    <label>Month & Year of Manufacture</label>
+
+    <input
+        type="month"
+        class="track-progress">
+
+</div>
 
         <!-- Pre Accident Condition -->
 
@@ -1055,7 +1087,331 @@
 
 </div>
 
+<div class="card form-section">
 
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-certificate"></i>
+            Section 6 : Certificate of Fitness
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-content">
+
+        <div class="form-grid">
+
+            <div>
+                <label>FC No</label>
+                <input type="text" class="track-progress">
+            </div>
+
+            <div>
+                <label>Date From</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Date To</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Remarks</label>
+                <input type="text" class="track-progress">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-receipt"></i>
+            Section 7 : TAX
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-content">
+
+        <div class="form-grid">
+
+            <div>
+                <label>Date From</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Date To</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div class="full-width">
+                <label>Remarks</label>
+                <input type="text" class="track-progress">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-id-card"></i>
+            Section 8 : Permit
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-content">
+
+        <div class="form-grid">
+
+            <div>
+                <label>Permit No</label>
+                <input type="text" class="track-progress">
+            </div>
+
+            <div>
+                <label>From Date</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>To Date</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Remarks</label>
+                <input type="text" class="track-progress">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-file-signature"></i>
+            Section 9 : Authorization
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-content">
+
+        <div class="form-grid">
+
+            <div>
+                <label>Authorization No</label>
+                <input type="text" class="track-progress">
+            </div>
+
+            <div>
+                <label>From Date</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>To Date</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Remarks</label>
+                <input type="text" class="track-progress">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-route"></i>
+            Section 10 : Trip Sheet
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-content">
+
+        <div class="form-grid">
+
+            <div>
+                <label>TC No</label>
+                <input type="text" class="track-progress">
+            </div>
+
+            <div>
+                <label>From Place</label>
+                <input type="text" class="track-progress">
+            </div>
+
+            <div>
+                <label>To Place</label>
+                <input type="text" class="track-progress">
+            </div>
+
+            <div class="full-width">
+
+                <label>Vehicle Type</label>
+
+                <div class="checkbox-field">
+
+                    <label>
+                        <input type="radio"
+                               name="tripType"
+                               value="bus"
+                               id="tripBus">
+                        Bus
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="tripType"
+                               value="goods"
+                               id="tripGoods">
+                        Goods
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div id="passengerField"
+                 class="conditional-field">
+
+                <label>Number of Passengers</label>
+
+                <input type="number"
+                       class="track-progress">
+            </div>
+
+            <div id="tonnageField"
+                 class="conditional-field">
+
+                <label>Tonnage</label>
+
+                <input type="number"
+                       step="0.01"
+                       class="track-progress">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-user-injured"></i>
+            Section 11 : TP Details
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-content">
+
+        <div class="form-grid">
+
+            <div>
+
+                <label>TP Injury</label>
+
+                <select id="tpInjurySelect"
+                        class="track-progress">
+
+                    <option value="">Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+        <div id="tpRemarksContainer">
+
+        </div>
+
+        <button
+            type="button"
+            id="addTpRemark"
+            class="mini-add-btn">
+
+            <i class="fas fa-plus"></i>
+
+            Add Remark
+
+        </button>
+
+    </div>
+
+</div>
 
 
 <div class="card form-section">
@@ -1066,7 +1422,7 @@
 
             <i class="fas fa-clipboard-check"></i>
 
-            Section 6 : Observation
+            Section 12 : Observation
 
         </div>
 
