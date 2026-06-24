@@ -332,3 +332,109 @@
 
     border:1px solid #e2e8f0;
 }
+.survey-details-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+
+    gap:20px;
+
+    padding:20px;
+}
+
+.detail-group{
+
+    border:1px solid #e2e8f0;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    background:#f8fafc;
+}
+
+.detail-group h4{
+
+    margin-bottom:15px;
+
+    color:var(--primary-dark);
+}
+
+.detail-group input,
+.detail-group textarea{
+
+    width:100%;
+
+    margin-bottom:10px;
+
+    padding:10px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:8px;
+
+    background:white;
+}
+
+.detail-group textarea{
+
+    min-height:100px;
+
+    resize:vertical;
+}
+.survey-edit-toolbar{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:20px;
+
+    border-bottom:1px solid #e2e8f0;
+}
+
+.edit-btn,
+.save-btn,
+.cancel-btn{
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:600;
+}
+
+.edit-btn{
+
+    background:#2563eb;
+}
+
+.save-btn{
+
+    background:#16a34a;
+}
+
+.cancel-btn{
+
+    background:#dc2626;
+}
+
+.survey-detail-field:read-only{
+
+    background:#f8fafc;
+}
+
+.survey-detail-field:not(:read-only){
+
+    background:white;
+
+    border:2px solid #2563eb;
+}
