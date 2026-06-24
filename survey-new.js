@@ -803,3 +803,110 @@ document.getElementById(
 
 }
 const selectedObservations = [];
+document.addEventListener(
+    "DOMContentLoaded",
+    initializeTPSection
+);
+
+function initializeTPSection(){
+
+    const addBtn =
+    document.getElementById(
+        "addTpRemark"
+    );
+
+    const container =
+    document.getElementById(
+        "tpRemarksContainer"
+    );
+
+    if(!addBtn || !container) return;
+
+    addBtn.addEventListener(
+        "click",
+        ()=>{
+
+            const box =
+            document.createElement("div");
+
+            box.className =
+            "tp-remark-box";
+
+            box.innerHTML = `
+
+                <div class="tp-remark-row">
+
+                    <input
+                        type="text"
+                        class="track-progress"
+                        placeholder="Enter Remark">
+
+                    <button
+                        type="button"
+                        class="tp-remove">
+
+                        <i class="fas fa-minus"></i>
+
+                    </button>
+
+                </div>
+
+            `;
+
+            container.appendChild(box);
+
+            box.querySelector(
+                ".tp-remove"
+            ).onclick =
+            ()=> box.remove();
+        }
+    );
+
+    document
+    .getElementById("tripBus")
+    ?.addEventListener(
+        "change",
+        ()=>{
+
+            document
+            .getElementById(
+                "passengerField"
+            )
+            .classList.add(
+                "active"
+            );
+
+            document
+            .getElementById(
+                "tonnageField"
+            )
+            .classList.remove(
+                "active"
+            );
+        }
+    );
+
+    document
+    .getElementById("tripGoods")
+    ?.addEventListener(
+        "change",
+        ()=>{
+
+            document
+            .getElementById(
+                "tonnageField"
+            )
+            .classList.add(
+                "active"
+            );
+
+            document
+            .getElementById(
+                "passengerField"
+            )
+            .classList.remove(
+                "active"
+            );
+        }
+    );
+}
