@@ -165,6 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initializeObservationSection();
 
+    initializeOptionalSections();
+
 });
 
 function initializeAddPlace(){
@@ -909,4 +911,67 @@ function initializeTPSection(){
             );
         }
     );
+}
+function initializeOptionalSections(){
+
+    const sections = [
+
+        {
+            checkbox:"enableFitness",
+            container:"fitnessContainer"
+        },
+
+        {
+            checkbox:"enablePermit",
+            container:"permitContainer"
+        },
+
+        {
+            checkbox:"enableAuthorization",
+            container:"authorizationContainer"
+        },
+
+        {
+            checkbox:"enableTripSheet",
+            container:"tripSheetContainer"
+        },
+
+        {
+            checkbox:"enableFIR",
+            container:"firContainer"
+        },
+
+    ];
+
+    sections.forEach(section=>{
+
+        const checkbox =
+        document.getElementById(
+            section.checkbox
+        );
+
+        const container =
+        document.getElementById(
+            section.container
+        );
+
+        if(!checkbox || !container)
+            return;
+
+        checkbox.addEventListener(
+            "change",
+            ()=>{
+
+                container.classList.toggle(
+                    "active",
+                    checkbox.checked
+                );
+
+                updateProgressBar();
+
+            }
+        );
+
+    });
+
 }
