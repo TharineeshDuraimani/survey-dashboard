@@ -886,6 +886,23 @@
 </div>
 
 <div class="section-content">
+    <div class="optional-section">
+
+    <label class="optional-checkbox">
+
+        <input
+            type="checkbox"
+            id="enableFIR">
+
+        Include FIR Details
+
+    </label>
+
+</div>
+
+<div
+    id="firContainer"
+    class="optional-container">
 
     <div class="form-grid">
 
@@ -1082,6 +1099,7 @@
         </div>
 
     </div>
+    </div>
 
 </div>
 
@@ -1103,6 +1121,24 @@
     </div>
 
     <div class="section-content">
+
+        <div class="optional-section">
+
+            <label class="optional-checkbox">
+
+                <input
+                    type="checkbox"
+                    id="enableFitness">
+
+                Include Certificate of Fitness
+
+            </label>
+
+        </div>
+
+        <div
+            id="fitnessContainer"
+            class="optional-container">
 
         <div class="form-grid">
 
@@ -1127,6 +1163,7 @@
             </div>
 
         </div>
+    </div>
 
     </div>
 
@@ -1192,30 +1229,69 @@
 
     <div class="section-content">
 
-        <div class="form-grid">
+        <div class="optional-section">
 
-            <div>
-                <label>Permit No</label>
-                <input type="text" class="track-progress">
-            </div>
+    <label class="optional-checkbox">
 
-            <div>
-                <label>From Date</label>
-                <input type="date" class="track-progress">
-            </div>
+        <input
+            type="checkbox"
+            id="enablePermit">
 
-            <div>
-                <label>To Date</label>
-                <input type="date" class="track-progress">
-            </div>
+        Include Permit Details
 
-            <div>
-                <label>Remarks</label>
-                <input type="text" class="track-progress">
-            </div>
+    </label>
+
+</div>
+
+<div
+    id="permitContainer"
+    class="optional-container">
+
+    <div class="form-grid">
+
+        <div>
+
+            <label>Permit No</label>
+
+            <input
+                type="text"
+                class="track-progress">
 
         </div>
 
+        <div>
+
+            <label>From Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>To Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>Remarks</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+    </div>
+
+</div>
     </div>
 
 </div>
@@ -1240,29 +1316,69 @@
 
     <div class="section-content">
 
-        <div class="form-grid">
+        <div class="optional-section">
 
-            <div>
-                <label>Authorization No</label>
-                <input type="text" class="track-progress">
-            </div>
+    <label class="optional-checkbox">
 
-            <div>
-                <label>From Date</label>
-                <input type="date" class="track-progress">
-            </div>
+        <input
+            type="checkbox"
+            id="enableAuthorization">
 
-            <div>
-                <label>To Date</label>
-                <input type="date" class="track-progress">
-            </div>
+        Include Authorization
 
-            <div>
-                <label>Remarks</label>
-                <input type="text" class="track-progress">
-            </div>
+    </label>
+
+</div>
+
+<div
+    id="authorizationContainer"
+    class="optional-container">
+
+    <div class="form-grid">
+
+        <div>
+
+            <label>Authorization No</label>
+
+            <input
+                type="text"
+                class="track-progress">
 
         </div>
+
+        <div>
+
+            <label>From Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>To Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>Remarks</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+    </div>
+
+</div>
 
     </div>
 
@@ -1287,69 +1403,33 @@
 
     <div class="section-content">
 
-        <div class="form-grid">
+        <div class="optional-section">
 
-            <div>
-                <label>TC No</label>
-                <input type="text" class="track-progress">
-            </div>
+    <label class="optional-checkbox">
 
-            <div>
-                <label>From Place</label>
-                <input type="text" class="track-progress">
-            </div>
+        <input
+            type="checkbox"
+            id="enableTripSheet">
 
-            <div>
-                <label>To Place</label>
-                <input type="text" class="track-progress">
-            </div>
+        Include Trip Sheet
 
-            <div class="full-width">
+    </label>
 
-                <label>Vehicle Type</label>
+</div>
 
-                <div class="checkbox-field">
+<div
+    id="tripSheetContainer"
+    class="optional-container">
 
-                    <label>
-                        <input type="radio"
-                               name="tripType"
-                               value="bus"
-                               id="tripBus">
-                        Bus
-                    </label>
+    <!-- Keep your existing TC No,
+         From Place,
+         To Place,
+         Bus/Goods,
+         Passenger,
+         Tonnage
+         form-grid here -->
 
-                    <label>
-                        <input type="radio"
-                               name="tripType"
-                               value="goods"
-                               id="tripGoods">
-                        Goods
-                    </label>
-
-                </div>
-
-            </div>
-
-            <div id="passengerField"
-                 class="conditional-field">
-
-                <label>Number of Passengers</label>
-
-                <input type="number"
-                       class="track-progress">
-            </div>
-
-            <div id="tonnageField"
-                 class="conditional-field">
-
-                <label>Tonnage</label>
-
-                <input type="number"
-                       step="0.01"
-                       class="track-progress">
-            </div>
-
-        </div>
+</div>
 
     </div>
 
