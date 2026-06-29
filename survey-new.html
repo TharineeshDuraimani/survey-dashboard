@@ -144,7 +144,7 @@
              SURVEY INFORMATION
         ========================== -->
 
-        <div class="card form-section">
+<div class="card form-section">
 
     <div class="section-header">
 
@@ -163,6 +163,27 @@
         <i class="fas fa-chevron-down"></i>
 
     </button>
+
+</div>
+<div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
 
 </div>
 
@@ -327,7 +348,7 @@
 <div class="card form-section">
 
     <div class="section-header">
-
+    
     <div class="section-title">
 
         <i class="fas fa-file-alt"></i>
@@ -343,6 +364,28 @@
         <i class="fas fa-chevron-down"></i>
 
     </button>
+
+</div>
+
+<div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
 
 </div>
 
@@ -456,6 +499,28 @@
 
 </div>
 
+<div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
+
 <div class="section-content">
 
     <div class="form-grid">
@@ -473,7 +538,132 @@
 
         </div>
 
-        <!-- Policy Number -->
+
+        <div class="full-width">
+
+    <label>Policy Number</label>
+
+    <input
+        type="text"
+        id="insuranceSearch"
+        placeholder="Search Office Code or Insurance Company">
+
+    <div id="insuranceResults"></div>
+
+</div>
+
+        <div>
+
+    <label>Insurance Company</label>
+
+    <input
+        id="insuranceCompany"
+        readonly>
+
+</div>
+
+<div>
+
+    <label>Office Type</label>
+
+    <input
+        id="insuranceOfficeType"
+        readonly>
+
+</div>
+
+<div class="full-width">
+
+    <label>Insurance Office Address</label>
+
+    <textarea
+        id="insuranceAddress"
+        rows="3"
+        readonly></textarea>
+
+</div>
+
+<div>
+
+    <label>City</label>
+
+    <input
+        id="insuranceCity"
+        readonly>
+
+</div>
+
+<div>
+
+    <label>State</label>
+
+    <input
+        id="insuranceState"
+        readonly>
+
+</div>
+
+<div>
+
+    <label>Pincode</label>
+
+    <input
+        id="insurancePincode"
+        readonly>
+
+</div>
+
+<div>
+
+    <label>STD Code</label>
+
+    <input
+        id="insuranceSTD"
+        readonly>
+
+</div>
+
+<div>
+
+    <label>Phone</label>
+
+    <input
+        id="insurancePhone"
+        readonly>
+
+</div>
+
+<div>
+
+    <label>Mobile</label>
+
+    <input
+        id="insuranceMobile"
+        readonly>
+
+</div>
+
+<div>
+
+    <label>Email</label>
+
+    <input
+        id="insuranceEmail"
+        readonly>
+
+</div>
+
+<div class="full-width">
+
+    <label>GSTIN</label>
+
+    <input
+        id="insuranceGSTIN"
+        readonly>
+
+</div>
+
+        <!-- Policy Number
 
         <div>
 
@@ -481,10 +671,13 @@
 
             <input
                 type="text"
+                id="policyNumber"
                 class="track-progress"
                 placeholder="Enter Policy Number">
 
-        </div>
+        </div> -->
+
+        
 
         <!-- Claim Number -->
 
@@ -606,6 +799,8 @@
 <div class="card form-section">
 
     <div class="section-header">
+    
+    
 
     <div class="section-title">
 
@@ -624,7 +819,27 @@
     </button>
 
 </div>
+<div class="section-progress">
 
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
 <div class="section-content">
 
     <div class="form-grid">
@@ -642,52 +857,42 @@
 
         </div>
 
-        <!-- Physically Verified -->
+
+                <!-- Class of Vehicle -->
 
         <div>
 
-            <label>Physically Verified</label>
-
-            <div class="checkbox-field">
-
-                <input
-                    type="checkbox"
-                    id="physicallyVerified"
-                    class="track-progress-checkbox">
-
-                <label for="physicallyVerified">
-                    Verified
-                </label>
-
-            </div>
-
-        </div>
-
-        <!-- Engine Number -->
-
-        <div>
-
-            <label>Engine Number</label>
+            <label>Class of Vehicle</label>
 
             <input
                 type="text"
                 class="track-progress"
-                placeholder="Enter Engine Number">
+                placeholder="LMV / HMV / Transport">
 
         </div>
 
-        <!-- Chassis Number -->
+                <div>
+
+            <label>RC Registration Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <!-- RC End Date -->
 
         <div>
 
-            <label>Chassis Number</label>
+            <label>RC Valid upto</label>
 
             <input
-                type="text"
-                class="track-progress"
-                placeholder="Enter Chassis Number">
+                type="date"
+                class="track-progress">
 
         </div>
+
 
         <!-- Make -->
 
@@ -715,6 +920,19 @@
 
         </div>
 
+                <!-- Chassis Number -->
+
+        <div>
+
+            <label>Chassis Number</label>
+
+            <input
+                type="text"
+                class="track-progress"
+                placeholder="Enter Chassis Number">
+
+        </div>
+
         <!-- Type of Body -->
 
         <div>
@@ -728,16 +946,16 @@
 
         </div>
 
-        <!-- Class of Vehicle -->
+                <!-- Engine Number -->
 
         <div>
 
-            <label>Class of Vehicle</label>
+            <label>Engine Number</label>
 
             <input
                 type="text"
                 class="track-progress"
-                placeholder="LMV / HMV / Transport">
+                placeholder="Enter Engine Number">
 
         </div>
 
@@ -860,7 +1078,445 @@
 
 
 
+<div class="card form-section">
 
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-certificate"></i>
+            Section 5 : Certificate of Fitness
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
+
+    <div class="section-content">
+
+        <div class="optional-section">
+
+            <label class="optional-checkbox">
+
+                <input
+                    type="checkbox"
+                    id="enableFitness">
+
+                Include Certificate of Fitness
+
+            </label>
+
+        </div>
+
+        <div
+            id="fitnessContainer"
+            class="optional-container">
+
+        <div class="form-grid">
+
+            <div>
+                <label>FC No</label>
+                <input type="text" class="track-progress">
+            </div>
+
+            <div>
+                <label>Date From</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Date To</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Remarks</label>
+                <input type="text" class="track-progress">
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+</div>
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-receipt"></i>
+            Section 6 : TAX
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
+
+    <div class="section-content">
+
+        <div class="form-grid">
+
+            <div>
+                <label>Date From</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div>
+                <label>Date To</label>
+                <input type="date" class="track-progress">
+            </div>
+
+            <div class="full-width">
+                <label>Remarks</label>
+                <input type="text" class="track-progress">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-id-card"></i>
+            Section 7 : Permit
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
+
+    <div class="section-content">
+
+        <div class="optional-section">
+
+    <label class="optional-checkbox">
+
+        <input
+            type="checkbox"
+            id="enablePermit">
+
+        Include Permit Details
+
+    </label>
+
+</div>
+
+<div
+    id="permitContainer"
+    class="optional-container">
+
+    <div class="form-grid">
+
+        <div>
+
+            <label>Permit No</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>From Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>To Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>Remarks</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+</div>
+
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-file-signature"></i>
+            Section 8 : Authorization
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
+
+    <div class="section-content">
+
+        <div class="optional-section">
+
+    <label class="optional-checkbox">
+
+        <input
+            type="checkbox"
+            id="enableAuthorization">
+
+        Include Authorization
+
+    </label>
+
+</div>
+
+<div
+    id="authorizationContainer"
+    class="optional-container">
+
+    <div class="form-grid">
+
+        <div>
+
+            <label>Authorization No</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>From Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>To Date</label>
+
+            <input
+                type="date"
+                class="track-progress">
+
+        </div>
+
+        <div>
+
+            <label>Remarks</label>
+
+            <input
+                type="text"
+                class="track-progress">
+
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+
+</div>
+
+
+
+<div class="card form-section">
+
+    <div class="section-header">
+
+        <div class="section-title">
+            <i class="fas fa-route"></i>
+            Section 9 : Trip Sheet
+        </div>
+
+        <button type="button" class="section-toggle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+    <div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
+
+    <div class="section-content">
+
+        <div class="optional-section">
+
+    <label class="optional-checkbox">
+
+        <input
+            type="checkbox"
+            id="enableTripSheet">
+
+        Include Trip Sheet
+
+    </label>
+
+</div>
+
+<div
+    id="tripSheetContainer"
+    class="optional-container">
+
+    <!-- Keep your existing TC No,
+         From Place,
+         To Place,
+         Bus/Goods,
+         Passenger,
+         Tonnage
+         form-grid here -->
+
+</div>
+
+    </div>
+
+</div>
 
 <div class="card form-section">
 
@@ -870,7 +1526,7 @@
 
         <i class="fas fa-file-alt"></i>
 
-        Section 5 : FIR Details
+        Section 10 : FIR Details
 
 
     </div>
@@ -885,6 +1541,28 @@
 
 </div>
 
+<div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
+
 <div class="section-content">
     <div class="optional-section">
 
@@ -894,7 +1572,7 @@
             type="checkbox"
             id="enableFIR">
 
-        Include FIR Details
+        Is FIR / GDR Logged
 
     </label>
 
@@ -1110,338 +1788,6 @@
     <div class="section-header">
 
         <div class="section-title">
-            <i class="fas fa-certificate"></i>
-            Section 6 : Certificate of Fitness
-        </div>
-
-        <button type="button" class="section-toggle">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-
-    </div>
-
-    <div class="section-content">
-
-        <div class="optional-section">
-
-            <label class="optional-checkbox">
-
-                <input
-                    type="checkbox"
-                    id="enableFitness">
-
-                Include Certificate of Fitness
-
-            </label>
-
-        </div>
-
-        <div
-            id="fitnessContainer"
-            class="optional-container">
-
-        <div class="form-grid">
-
-            <div>
-                <label>FC No</label>
-                <input type="text" class="track-progress">
-            </div>
-
-            <div>
-                <label>Date From</label>
-                <input type="date" class="track-progress">
-            </div>
-
-            <div>
-                <label>Date To</label>
-                <input type="date" class="track-progress">
-            </div>
-
-            <div>
-                <label>Remarks</label>
-                <input type="text" class="track-progress">
-            </div>
-
-        </div>
-    </div>
-
-    </div>
-
-</div>
-
-
-<div class="card form-section">
-
-    <div class="section-header">
-
-        <div class="section-title">
-            <i class="fas fa-receipt"></i>
-            Section 7 : TAX
-        </div>
-
-        <button type="button" class="section-toggle">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-
-    </div>
-
-    <div class="section-content">
-
-        <div class="form-grid">
-
-            <div>
-                <label>Date From</label>
-                <input type="date" class="track-progress">
-            </div>
-
-            <div>
-                <label>Date To</label>
-                <input type="date" class="track-progress">
-            </div>
-
-            <div class="full-width">
-                <label>Remarks</label>
-                <input type="text" class="track-progress">
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<div class="card form-section">
-
-    <div class="section-header">
-
-        <div class="section-title">
-            <i class="fas fa-id-card"></i>
-            Section 8 : Permit
-        </div>
-
-        <button type="button" class="section-toggle">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-
-    </div>
-
-    <div class="section-content">
-
-        <div class="optional-section">
-
-    <label class="optional-checkbox">
-
-        <input
-            type="checkbox"
-            id="enablePermit">
-
-        Include Permit Details
-
-    </label>
-
-</div>
-
-<div
-    id="permitContainer"
-    class="optional-container">
-
-    <div class="form-grid">
-
-        <div>
-
-            <label>Permit No</label>
-
-            <input
-                type="text"
-                class="track-progress">
-
-        </div>
-
-        <div>
-
-            <label>From Date</label>
-
-            <input
-                type="date"
-                class="track-progress">
-
-        </div>
-
-        <div>
-
-            <label>To Date</label>
-
-            <input
-                type="date"
-                class="track-progress">
-
-        </div>
-
-        <div>
-
-            <label>Remarks</label>
-
-            <input
-                type="text"
-                class="track-progress">
-
-        </div>
-
-    </div>
-
-</div>
-    </div>
-
-</div>
-
-
-
-
-<div class="card form-section">
-
-    <div class="section-header">
-
-        <div class="section-title">
-            <i class="fas fa-file-signature"></i>
-            Section 9 : Authorization
-        </div>
-
-        <button type="button" class="section-toggle">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-
-    </div>
-
-    <div class="section-content">
-
-        <div class="optional-section">
-
-    <label class="optional-checkbox">
-
-        <input
-            type="checkbox"
-            id="enableAuthorization">
-
-        Include Authorization
-
-    </label>
-
-</div>
-
-<div
-    id="authorizationContainer"
-    class="optional-container">
-
-    <div class="form-grid">
-
-        <div>
-
-            <label>Authorization No</label>
-
-            <input
-                type="text"
-                class="track-progress">
-
-        </div>
-
-        <div>
-
-            <label>From Date</label>
-
-            <input
-                type="date"
-                class="track-progress">
-
-        </div>
-
-        <div>
-
-            <label>To Date</label>
-
-            <input
-                type="date"
-                class="track-progress">
-
-        </div>
-
-        <div>
-
-            <label>Remarks</label>
-
-            <input
-                type="text"
-                class="track-progress">
-
-        </div>
-
-    </div>
-
-</div>
-
-    </div>
-
-</div>
-
-
-
-<div class="card form-section">
-
-    <div class="section-header">
-
-        <div class="section-title">
-            <i class="fas fa-route"></i>
-            Section 10 : Trip Sheet
-        </div>
-
-        <button type="button" class="section-toggle">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-
-    </div>
-
-    <div class="section-content">
-
-        <div class="optional-section">
-
-    <label class="optional-checkbox">
-
-        <input
-            type="checkbox"
-            id="enableTripSheet">
-
-        Include Trip Sheet
-
-    </label>
-
-</div>
-
-<div
-    id="tripSheetContainer"
-    class="optional-container">
-
-    <!-- Keep your existing TC No,
-         From Place,
-         To Place,
-         Bus/Goods,
-         Passenger,
-         Tonnage
-         form-grid here -->
-
-</div>
-
-    </div>
-
-</div>
-
-
-
-<div class="card form-section">
-
-    <div class="section-header">
-
-        <div class="section-title">
             <i class="fas fa-user-injured"></i>
             Section 11 : TP Details
         </div>
@@ -1451,9 +1797,64 @@
         </button>
 
     </div>
+    <div class="section-progress">
+
+    <div class="section-progress-info">
+
+        <span>Progress</span>
+
+        <span class="section-progress-count">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+    <div class="section-progress-track">
+
+        <div class="section-progress-fill"></div>
+
+    </div>
+
+</div>
 
     <div class="section-content">
 
+        <div class="form-grid">
+
+            <div>
+
+                <label>TP Injury</label>
+
+                <select id="tpInjurySelect"
+                        class="track-progress">
+
+                    <option value="">Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+        <div id="tpRemarksContainer">
+
+        </div>
+
+        <button
+            type="button"
+            id="addTpRemark"
+            class="mini-add-btn">
+
+            <i class="fas fa-plus"></i>
+
+            Add Remark
+
+        </button>
         <div class="form-grid">
 
             <div>
@@ -1492,6 +1893,8 @@
     </div>
 
 </div>
+
+
 
 
 <div class="card form-section">
@@ -1741,7 +2144,37 @@
             </button>
 
         </div>
+        <hr class="observation-divider">
 
+<div class="additional-observation">
+
+    <div class="additional-header">
+
+        <h4>
+
+            Additional Observations
+
+        </h4>
+
+        <button
+            type="button"
+            id="addObservationBtn"
+            class="mini-add-btn">
+
+            <i class="fas fa-plus"></i>
+
+            Add Observation
+
+        </button>
+
+    </div>
+
+    <div
+        id="additionalObservationContainer">
+
+    </div>
+
+</div>
     </div>
 
 </div>
