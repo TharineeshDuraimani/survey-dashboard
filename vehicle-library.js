@@ -50,6 +50,23 @@ document
 
         });
 });
+
+document
+.querySelectorAll(".sub-folder-header")
+.forEach(header=>{
+
+    header.addEventListener(
+        "click",
+        ()=>{
+
+            header.parentElement
+                  .classList
+                  .toggle("active");
+
+        }
+    );
+
+});
 const imageUpload =
 document.getElementById("imageUpload");
 
@@ -591,3 +608,171 @@ function initializeSurveyEditor(){
     );
 
 }
+initializeDocumentVerification();
+
+function initializeDocumentVerification(){
+
+    const editBtn =
+    document.getElementById(
+        "editVerificationBtn"
+    );
+
+    const saveBtn =
+    document.getElementById(
+        "saveVerificationBtn"
+    );
+
+    if(!editBtn) return;
+
+    const checks =
+    document.querySelectorAll(
+        ".doc-check"
+    );
+
+    checks.forEach(c=>{
+
+        c.disabled = true;
+
+    });
+
+    editBtn.addEventListener(
+        "click",
+        ()=>{
+
+            checks.forEach(c=>{
+
+                c.disabled = false;
+
+            });
+
+            editBtn.style.display =
+            "none";
+
+            saveBtn.style.display =
+            "inline-flex";
+
+        }
+    );
+
+    saveBtn.addEventListener(
+        "click",
+        ()=>{
+
+            if(
+                !confirm(
+                "Save Document Verification?"
+                )
+            ) return;
+
+            checks.forEach(c=>{
+
+                c.disabled = true;
+
+            });
+
+            saveBtn.style.display =
+            "none";
+
+            editBtn.style.display =
+            "inline-flex";
+
+            alert(
+            "Document Verification Saved."
+            );
+
+        }
+    );
+
+}
+initializeDocumentChecklist();
+initializeDocumentChecklist();
+
+function initializeDocumentChecklist(){
+
+    const editBtn =
+    document.getElementById(
+        "editChecklistBtn"
+    );
+
+    const saveBtn =
+    document.getElementById(
+        "saveChecklistBtn"
+    );
+
+    if(!editBtn) return;
+
+    const checks =
+    document.querySelectorAll(
+        ".document-check"
+    );
+
+    checks.forEach(c=>{
+
+        c.disabled = true;
+
+    });
+
+    editBtn.addEventListener(
+        "click",
+        ()=>{
+
+            checks.forEach(c=>{
+
+                c.disabled = false;
+
+            });
+
+            editBtn.style.display =
+            "none";
+
+            saveBtn.style.display =
+            "inline-flex";
+
+        }
+    );
+
+    saveBtn.addEventListener(
+        "click",
+        ()=>{
+
+            if(
+                !confirm(
+                "Save Document Checklist?"
+                )
+            ) return;
+
+            checks.forEach(c=>{
+
+                c.disabled = true;
+
+            });
+
+            saveBtn.style.display =
+            "none";
+
+            editBtn.style.display =
+            "inline-flex";
+
+            alert(
+            "Document Checklist Saved."
+            );
+
+        }
+    );
+
+}
+document
+.getElementById(
+"openSurveyReport"
+)
+?.addEventListener(
+
+"click",
+
+()=>{
+
+window.location.href=
+
+"survey-report.html";
+
+});
