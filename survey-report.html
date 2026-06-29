@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Survey Report</title>
+
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="survey-report.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="report-page">
+
+<!-- =======================================================
+TOP TOOLBAR
+======================================================= -->
+
+<div class="report-toolbar">
+
+    <button id="backBtn" class="toolbar-btn">
+
+        <i class="fas fa-arrow-left"></i>
+
+        Back
+
+    </button>
+
+    <div class="toolbar-right">
+
+        <button id="previewBtn" class="toolbar-btn">
+
+            <i class="fas fa-eye"></i>
+
+            Preview
+
+        </button>
+
+        <button id="printBtn" class="toolbar-btn">
+
+            <i class="fas fa-print"></i>
+
+            Print
+
+        </button>
+
+        <button id="downloadBtn" class="toolbar-btn primary">
+
+            <i class="fas fa-download"></i>
+
+            Download PDF
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================================
+REPORT
+======================================================= -->
+
+<div class="report-paper">
+
+<!-- =======================================================
+HEADER
+======================================================= -->
+
+<header class="report-header">
+
+<div class="header-left">
+
+<h1>
+
+S. SANTHANAM
+
+</h1>
+
+<h2>
+
+Surveyor & Loss Assessor
+
+</h2>
+
+<p>
+
+90-C, Sri Krishna Complex
+
+</p>
+
+<p>
+
+Nall Road, Somanur Road
+
+</p>
+
+<p>
+
+Karumathampatti - 641659
+
+</p>
+
+<p>
+
+Coimbatore
+
+</p>
+
+</div>
+
+<div class="header-right">
+
+<p>
+
+<strong>Licence No :</strong>
+
+SLA 122030
+
+</p>
+
+<p>
+
+<strong>Valid upto :</strong>
+
+23.02.2027
+
+</p>
+
+<p>
+
+<strong>IIISLA No :</strong>
+
+L/S/10870
+
+</p>
+
+<p>
+
+<strong>Mobile :</strong>
+
+97877 35590
+
+</p>
+
+<p>
+
+73055 35590
+
+</p>
+
+<p>
+
+<strong>Email :</strong>
+
+santhanamsurveyor@gmail.com
+
+</p>
+
+</div>
+
+</header>
+
+<!-- =======================================================
+TITLE
+======================================================= -->
+
+<section class="report-title">
+
+<h2>
+
+MOTOR SURVEY REPORT
+
+</h2>
+
+<div class="title-grid">
+
+<div>
+
+<label>
+
+Survey Report No
+
+</label>
+
+<p id="reportNo">-</p>
+
+</div>
+
+<div>
+
+<label>
+
+Survey Date
+
+</label>
+
+<p id="reportDate">-</p>
+
+</div>
+
+<div>
+
+<label>
+
+Vehicle Number
+
+</label>
+
+<p id="vehicleNumber">-</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =======================================================
+SECTION 1
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+1. Survey Details
+
+</h3>
+
+<table class="details-table">
+
+<tr>
+<th>Survey Number</th>
+<td id="surveyNo"></td>
+
+<th>Appointment Date</th>
+<td id="appointmentDate"></td>
+</tr>
+
+<tr>
+<th>Survey Type</th>
+<td id="surveyType"></td>
+
+<th>Survey Conducted</th>
+<td id="surveyConducted"></td>
+</tr>
+
+<tr>
+<th>Place of Survey</th>
+<td id="surveyPlace"></td>
+
+<th>Appointed By</th>
+<td id="appointedBy"></td>
+</tr>
+
+</table>
+
+</section>
+
+<!-- =======================================================
+SECTION 2
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+2. Document Verification
+
+</h3>
+
+<table class="verification-table">
+
+<thead>
+
+<tr>
+
+<th>Document</th>
+
+<th>Original</th>
+
+<th>Copy</th>
+
+<th>Insurer</th>
+
+<th>Online</th>
+
+<th>Extract</th>
+
+</tr>
+
+</thead>
+
+<tbody id="verificationTable">
+
+<tr>
+
+<td>Registration Certificate</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Driving Licence</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Permit</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Fitness Certificate</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Tax</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Trip Sheet</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- =======================================================
+SECTION 3
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+3. Insurer Details
+
+</h3>
+
+<table class="details-table">
+
+<tr>
+
+<th>Insurance Company</th>
+
+<td id="company"></td>
+
+<th>Policy Number</th>
+
+<td id="policyNo"></td>
+
+</tr>
+
+<tr>
+
+<th>Claim Number</th>
+
+<td id="claimNo"></td>
+
+<th>IDV</th>
+
+<td id="idv"></td>
+
+</tr>
+
+<tr>
+
+<th>Policy Period</th>
+
+<td id="policyPeriod"></td>
+
+<th>Endorsement</th>
+
+<td id="endorsement"></td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!-- =======================================================
+SECTION 4
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+4. Insured Details
+
+</h3>
+
+<table class="details-table">
+
+<tr>
+
+<th>Name</th>
+
+<td id="insuredName"></td>
+
+</tr>
+
+<tr>
+
+<th>Address</th>
+
+<td id="insuredAddress"></td>
+
+</tr>
+
+<tr>
+
+<th>Mobile</th>
+
+<td id="insuredMobile"></td>
+
+</tr>
+
+<tr>
+
+<th>Pincode</th>
+
+<td id="insuredPincode"></td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!-- =======================================================
+SECTION 5
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+5. Vehicle Details
+
+</h3>
+
+<table class="details-table">
+
+<tr>
+
+<th>Registration No</th>
+
+<td id="registrationNo"></td>
+
+<th>Owner</th>
+
+<td id="ownerName"></td>
+
+</tr>
+
+<tr>
+
+<th>Engine No</th>
+
+<td id="engineNo"></td>
+
+<th>Chassis No</th>
+
+<td id="chassisNo"></td>
+
+</tr>
+
+<tr>
+
+<th>Make</th>
+
+<td id="make"></td>
+
+<th>Model</th>
+
+<td id="model"></td>
+
+</tr>
+
+<tr>
+
+<th>Body Type</th>
+
+<td id="bodyType"></td>
+
+<th>Vehicle Class</th>
+
+<td id="vehicleClass"></td>
+
+</tr>
+
+<tr>
+
+<th>Colour</th>
+
+<td id="colour"></td>
+
+<th>Fuel</th>
+
+<td id="fuel"></td>
+
+</tr>
+
+<tr>
+
+<th>Manufacture</th>
+
+<td id="year"></td>
+
+<th>Odometer</th>
+
+<td id="odometer"></td>
+
+</tr>
+
+<tr>
+
+<th>Physically Verified</th>
+
+<td id="verified"></td>
+
+<th>Pre Accident Condition</th>
+
+<td id="condition"></td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!-- =======================================================
+SECTION 6
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+6. Trip Sheet
+
+</h3>
+
+<table class="details-table">
+
+<tr>
+
+<th>Trip Sheet No</th>
+
+<td id="tripNo"></td>
+
+<th>Vehicle Type</th>
+
+<td id="tripVehicle"></td>
+
+</tr>
+
+<tr>
+
+<th>From</th>
+
+<td id="tripFrom"></td>
+
+<th>To</th>
+
+<td id="tripTo"></td>
+
+</tr>
+
+<tr>
+
+<th>Passengers / Tonnage</th>
+
+<td colspan="3" id="tripLoad"></td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!-- =======================================================
+SECTION 7
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+7. FIR Details
+
+</h3>
+
+<div id="firContainer">
+
+<table class="details-table">
+
+<tr>
+
+<th>FIR No</th>
+
+<td id="firNo"></td>
+
+<th>FIR Date</th>
+
+<td id="firDate"></td>
+
+</tr>
+
+<tr>
+
+<th>Police Station</th>
+
+<td id="policeStation"></td>
+
+<th>MVA</th>
+
+<td id="mva"></td>
+
+</tr>
+
+<tr>
+
+<th>IPC</th>
+
+<td id="ipc"></td>
+
+<th>Driver Without Licence</th>
+
+<td id="withoutLicence"></td>
+
+</tr>
+
+<tr>
+
+<th>Previous Police Records</th>
+
+<td colspan="3" id="policeRecords"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- =======================================================
+SECTION 8
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+8. Third Party Details
+
+</h3>
+
+<table class="details-table">
+
+<tr>
+
+<th>TP Injury</th>
+
+<td id="tpInjury"></td>
+
+<th>Property Damage</th>
+
+<td id="propertyDamage"></td>
+
+</tr>
+
+<tr>
+
+<th>TPPD</th>
+
+<td id="tppd"></td>
+
+<th>Remarks</th>
+
+<td id="tpRemarks"></td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!-- =======================================================
+SURVEYOR REMARKS
+======================================================= -->
+
+<section class="report-section">
+
+<h3>
+
+Surveyor Remarks
+
+</h3>
+
+<div class="remarks-box">
+
+</div>
+
+</section>
+
+<!-- =======================================================
+FOOTER
+======================================================= -->
+
+<footer class="report-footer">
+
+<div class="signature">
+
+<p>
+
+For
+
+</p>
+
+<h3>
+
+S. SANTHANAM
+
+</h3>
+
+<p>
+
+Surveyor & Loss Assessor
+
+</p>
+
+</div>
+
+</footer>
+
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="survey-report.js"></script>
+
+</body>
+
+</html>
