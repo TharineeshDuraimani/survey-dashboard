@@ -971,3 +971,214 @@
 
     height:18px;
 }
+.observation-divider{
+
+    margin:25px 0;
+
+    border:none;
+
+    border-top:1px solid #dbe5ef;
+
+}
+
+.additional-observation{
+
+    margin-top:20px;
+
+}
+
+.additional-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.additional-header h4{
+
+    margin:0;
+
+    color:var(--primary-dark);
+
+}
+
+.additional-observation-item{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:flex-start;
+
+    margin-bottom:15px;
+
+}
+
+.additional-observation-item textarea{
+
+    flex:1;
+
+    min-height:80px;
+
+    resize:vertical;
+
+}
+
+.remove-observation{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#dc2626;
+
+    color:white;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+}
+
+.remove-observation:hover{
+
+    background:#b91c1c;
+
+}
+
+@media(max-width:767px){
+
+    .additional-observation-item{
+
+        flex-direction:column;
+
+    }
+
+    .remove-observation{
+
+        width:100%;
+
+        border-radius:10px;
+
+    }
+
+}
+/*==========================================
+SECTION PROGRESS BAR
+==========================================*/
+
+.section-progress{
+
+    margin-bottom:20px;
+
+}
+
+.section-progress-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:var(--primary-dark);
+
+}
+
+.section-progress-track{
+
+    width:100%;
+
+    height:10px;
+
+    border-radius:20px;
+
+    background:#e2e8f0;
+
+    overflow:hidden;
+
+}
+
+.section-progress-fill{
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #16a34a
+    );
+
+    transition:.35s;
+
+}
+#insuranceResults{
+
+    position:relative;
+
+    margin-top:5px;
+
+    border:1px solid #dbeafe;
+
+    border-radius:10px;
+
+    background:white;
+
+    max-height:260px;
+
+    overflow-y:auto;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+
+    z-index:999;
+
+}
+
+.insurance-item{
+
+    padding:12px 15px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid #eef2ff;
+
+    transition:.25s;
+
+}
+
+.insurance-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.insurance-item:hover{
+
+    background:#eff6ff;
+
+}
+
+.insurance-item strong{
+
+    color:#2563eb;
+
+}
