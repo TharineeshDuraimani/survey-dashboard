@@ -438,3 +438,393 @@
 
     border:2px solid #2563eb;
 }
+.document-toolbar{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:20px;
+
+}
+
+.verification-table{
+
+    overflow-x:auto;
+
+    padding:20px;
+
+}
+
+.verification-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:900px;
+
+}
+
+.verification-table th{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px;
+
+    text-align:center;
+
+}
+
+.verification-table td{
+
+    padding:14px;
+
+    border:1px solid #e5e7eb;
+
+    text-align:center;
+
+}
+
+.verification-table tbody tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+.doc-check{
+
+    width:20px;
+
+    height:20px;
+
+    cursor:pointer;
+
+}
+.document-divider{
+
+    margin:30px 20px;
+
+    border:none;
+
+    border-top:1px solid #dbe3ec;
+}
+
+.document-checklist-title{
+
+    margin:20px;
+
+    color:var(--primary-dark);
+}
+
+.document-checklist-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:14px;
+
+    padding:20px;
+}
+
+.document-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.document-item:hover{
+
+    background:#eff6ff;
+
+    transform:translateY(-2px);
+}
+
+.document-item input{
+
+    width:20px;
+
+    height:20px;
+}
+/* ===============================
+   SUB FOLDERS
+================================*/
+
+.sub-folder{
+
+    margin:20px;
+
+    border:1px solid #dbe5ef;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+}
+
+.sub-folder-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 20px;
+
+    background:#f8fafc;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.sub-folder-header:hover{
+
+    background:#eff6ff;
+
+}
+
+.sub-folder-content{
+
+    display:none;
+
+    background:white;
+
+}
+
+.sub-folder.active
+.sub-folder-content{
+
+    display:block;
+
+}
+
+.sub-folder-header i{
+
+    transition:.3s;
+
+}
+
+.sub-folder.active
+.sub-folder-header i{
+
+    transform:rotate(180deg);
+
+}
+/* ==========================================
+   REPORT CARD
+========================================== */
+
+.report-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    padding:25px;
+
+    margin:20px;
+
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #f8fbff
+    );
+
+    border:1px solid #dbe5ef;
+
+    border-left:6px solid var(--primary);
+
+    border-radius:18px;
+
+    transition:.3s;
+
+    box-shadow:
+        0 8px 24px rgba(37,99,235,.08);
+
+}
+
+.report-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,.15);
+
+}
+
+.report-card h3{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:0;
+
+    font-size:18px;
+
+    color:var(--primary-dark);
+
+    font-weight:700;
+
+}
+
+.report-card h3::before{
+
+    content:"📄";
+
+    font-size:28px;
+
+}
+
+.report-card p{
+
+    margin:0;
+
+    color:#64748b;
+
+    line-height:1.7;
+
+    font-size:12px;
+
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.report-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:8px;
+
+}
+
+.report-actions button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap: 6px;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    padding:8px 18px;
+
+    border-radius:8px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+/* Preview */
+
+#openSurveyReport{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:white;
+
+}
+
+#openSurveyReport:hover{
+
+    background:linear-gradient(
+        135deg,
+        #1d4ed8,
+        #1e3a8a
+    );
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.30);
+
+}
+
+.report-actions button i{
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    .report-card{
+
+        margin:15px;
+
+        padding:20px;
+
+    }
+
+    .report-card h3{
+
+        font-size:20px;
+
+    }
+
+    .report-actions{
+
+        flex-direction:column;
+
+    }
+
+    .report-actions button{
+
+        width:100%;
+
+    }
+
+}
