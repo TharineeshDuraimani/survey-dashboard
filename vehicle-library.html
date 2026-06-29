@@ -340,11 +340,59 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </div>
 
-   <div class="folder">
+<!-- ==========================================================
+REPORTS
+========================================================== -->
+
+<div class="folder">
 
     <div class="folder-header">
 
-        <span>📁 Reports</span>
+        <span>
+            <i class="fas fa-file-alt"></i>
+            Survey Report
+        </span>
+
+        <i class="fas fa-chevron-down"></i>
+
+    </div>
+
+    <div class="folder-content">
+        <div class="report-card">
+
+<h3>
+    Motor Survey Report
+</h3>
+
+<p>
+    Generate, preview, print and download the complete motor survey report in a professional PDF format.
+</p>
+
+<div class="report-actions">
+
+    <button id="openSurveyReport">
+
+        <i class="fas fa-file-pdf"></i>
+
+        Open Report
+
+    </button>
+
+</div>
+
+</div>
+
+    </div>
+
+</div>
+
+<div class="folder">
+
+    <div class="folder-header">
+
+        <span>
+            📑 Document Verification & Checklist
+        </span>
 
         <i class="fas fa-chevron-down"></i>
 
@@ -352,21 +400,403 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <div class="folder-content">
 
-        <div class="file-item">
-            Interim Report 1
+        <!-- ==========================
+             SUB FOLDER 1
+        ========================== -->
+
+        <div class="sub-folder">
+
+            <div class="sub-folder-header">
+
+                <span>
+                    📋 Document Verification
+                </span>
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+            <div class="sub-folder-content">
+
+                <div class="document-toolbar">
+
+                    <button
+                        id="editVerificationBtn"
+                        class="edit-btn">
+
+                        <i class="fas fa-pen"></i>
+
+                        Edit
+
+                    </button>
+
+                    <button
+                        id="saveVerificationBtn"
+                        class="save-btn"
+                        style="display:none;">
+
+                        <i class="fas fa-save"></i>
+
+                        Save
+
+                    </button>
+
+                </div>
+
+                <!-- KEEP YOUR EXISTING verification-table HERE -->
+                 <div class="verification-table">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Document</th>
+
+                        <th>Original Verified</th>
+
+                        <th>Photocopy</th>
+
+                        <th>Verified by Insurer</th>
+
+                        <th>Verified Online</th>
+
+                        <th>Extract</th>
+                        
+                        
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Registration Certificate (RC)</td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Driving Licence (DL)</td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>TAX</td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Permit</td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Authorization</td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Trip Sheet</td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                        <td><input class="doc-check" type="checkbox" disabled></td>
+
+                    </tr>
+                    <hr class="document-divider">
+
+
+
+                </tbody>
+
+            </table>
+
         </div>
 
-        <div class="file-item">
-            Interim Report 2
+            </div>
+
         </div>
 
-        <div class="file-item">
-            Final Report
+
+        <!-- ==========================
+             SUB FOLDER 2
+        ========================== -->
+
+        <div class="sub-folder">
+
+            <div class="sub-folder-header">
+
+                <span>
+                    ☑️ Document Checklist
+                </span>
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+            <div class="sub-folder-content">
+
+                <div class="document-toolbar">
+
+                    <button
+                        id="editChecklistBtn"
+                        class="edit-btn">
+
+                        <i class="fas fa-pen"></i>
+
+                        Edit
+
+                    </button>
+
+                    <button
+                        id="saveChecklistBtn"
+                        class="save-btn"
+                        style="display:none;">
+
+                        <i class="fas fa-save"></i>
+
+                        Save
+
+                    </button>
+
+                </div>
+
+                <!-- KEEP YOUR EXISTING document-checklist-grid HERE -->
+                 <div class="document-checklist-grid">
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Intimation Letter
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Claim Form
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Estimate
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Supplementary Estimate
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Insurance Policy
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        RC Copy
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        DL Copy
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Driver Statement
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Owner Statement
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Spot Photos
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        FIR / GD Entry
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        CFX / MVI Report
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Repair Bills & Receipts
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Towing Bill
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Discharge / Satisfaction Voucher
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Cancelled Cheque Leaf
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Insured KYC
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Spot Report
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Tax Card
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Permit
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Fitness Certificate
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Trip Sheet / Load Challan
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        RC Extract
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        DL Extract
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Permit Extract
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Purchase Invoice
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Today's Invoice
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Consent Letter
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Section 64 VB Compliance
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Investigation Report
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        Affidavit
+    </label>
+
+    <label class="document-item">
+        <input type="checkbox" class="document-check">
+        NOC from Financier
+    </label>
+
+</div>
+
+            </div>
+
         </div>
 
     </div>
 
 </div>
+
 
 <div class="folder">
 
@@ -482,6 +912,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </div>
 
 </div>
+
 <script src="vehicle-library.js"></script>
 
 </body>
