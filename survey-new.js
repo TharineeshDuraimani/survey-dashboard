@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initializeConditionalFields();
 
+    initializeInsuranceSearch();
+
 });
 
 function generateSurveyId(){
@@ -234,6 +236,7 @@ checkboxes.forEach(box => {
 });
 
     updateProgressBar();
+    updateSectionProgress();
 }
 
 function updateProgressBar(){
@@ -288,7 +291,8 @@ checkboxes.forEach(box => {
 
     if(box.checked)
         filled++;
-});    
+});
+updateSectionProgress();    
 }
 function initializeLossDetails(){
 
@@ -580,6 +584,17 @@ function initializeSectionToggles(){
 
 }
 let workshops = [];
+let insuranceOffices = [];
+
+fetch("insurance-offices.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+    insuranceOffices = data;
+
+});
 
 fetch("workshops.json")
 .then(res => res.json())
@@ -803,6 +818,68 @@ document.getElementById(
         );
     });
 
+    const addObservationBtn =
+document.getElementById(
+    "addObservationBtn"
+);
+
+const additionalContainer =
+document.getElementById(
+    "additionalObservationContainer"
+);
+
+if(addObservationBtn){
+
+    addObservationBtn.addEventListener(
+        "click",
+        ()=>{
+
+            const block =
+            document.createElement("div");
+
+            block.className =
+            "additional-observation-item";
+
+            block.innerHTML = `
+
+                <textarea
+                    class="track-progress"
+                    placeholder="Enter Additional Observation..."></textarea>
+
+                <button
+                    type="button"
+                    class="remove-observation">
+
+                    <i class="fas fa-minus"></i>
+
+                </button>
+
+            `;
+
+            additionalContainer.appendChild(
+                block
+            );
+
+            block.querySelector(
+                ".remove-observation"
+            ).addEventListener(
+                "click",
+                ()=>{
+
+                    block.remove();
+
+                    updateProgressBar();
+
+                }
+            );
+
+            initializeProgressBar();
+
+        }
+    );
+
+}
+
 }
 const selectedObservations = [];
 document.addEventListener(
@@ -973,5 +1050,281 @@ function initializeOptionalSections(){
         );
 
     });
+
+}
+function updateSectionProgress(){
+
+    const sections =
+    document.querySelectorAll(".form-section");
+
+    sections.forEach(section=>{
+
+        const fields =
+
+        section.querySelectorAll(
+
+            ".track-progress"
+
+        );
+
+        let total = 0;
+
+        let filled = 0;
+
+        fields.forEach(field=>{
+
+            /*
+            Ignore hidden optional fields
+            */
+
+            if(
+
+                field.offsetParent === null
+
+            ) return;
+
+            total++;
+
+            if(
+
+                field.value.trim() !== ""
+
+            ){
+
+                filled++;
+
+            }
+
+        });
+
+        const count =
+
+        section.querySelector(
+
+            ".section-progress-count"
+
+        );
+
+        const fill =
+
+        section.querySelector(
+
+            ".section-progress-fill"
+
+        );
+
+        if(count){
+
+            count.textContent =
+
+            `${filled} / ${total}`;
+
+        }
+
+        if(fill){
+
+            fill.style.width =
+
+            total === 0
+
+            ? "0%"
+
+            :
+
+            ((filled/total)*100)+"%";
+
+        }
+
+    });
+
+}
+function initializeInsuranceSearch(){
+
+    const searchBox =
+    document.getElementById(
+        "insuranceSearch"
+    );
+
+    const resultBox =
+    document.getElementById(
+        "insuranceResults"
+    );
+
+    if(!searchBox || !resultBox)
+        return;
+
+    searchBox.addEventListener(
+        "input",
+        function(){
+
+            const term =
+            this.value
+            .toLowerCase()
+            .trim();
+
+            resultBox.innerHTML="";
+
+            if(term.length<2)
+                return;
+
+            const matches =
+
+            insuranceOffices.filter(office=>{
+
+                return(
+
+                    office.officeCode
+                    .toLowerCase()
+                    .includes(term)
+
+                    ||
+
+                    office.company
+                    .toLowerCase()
+                    .includes(term)
+
+                );
+
+            }).slice(0,15);
+
+            matches.forEach(office=>{
+
+                const div =
+                document.createElement("div");
+
+                div.className =
+                "insurance-item";
+
+                div.innerHTML =
+
+                `
+                <strong>
+
+                ${office.officeCode}
+
+                </strong>
+
+                -
+
+                ${office.company}
+
+                <br>
+
+                <small>
+
+                ${office.address}
+
+                </small>
+
+                `;
+
+                div.onclick=function(){
+
+                    searchBox.value=
+
+                    office.officeCode+
+
+                    " - "+
+
+                    office.company;
+
+                    document.getElementById(
+
+                        "insuranceCompany"
+
+                    ).value=
+
+                    office.company;
+
+                    document.getElementById(
+
+                        "insuranceOfficeType"
+
+                    ).value=
+
+                    office.officeType;
+
+                    document.getElementById(
+
+                        "insuranceAddress"
+
+                    ).value=
+
+                    office.address;
+
+                    document.getElementById(
+
+                        "insuranceCity"
+
+                    ).value=
+
+                    office.city;
+
+                    document.getElementById(
+
+                        "insuranceState"
+
+                    ).value=
+
+                    office.state;
+
+                    document.getElementById(
+
+                        "insurancePincode"
+
+                    ).value=
+
+                    office.pincode;
+
+                    document.getElementById(
+
+                        "insuranceSTD"
+
+                    ).value=
+
+                    office.stdCode;
+
+                    document.getElementById(
+
+                        "insurancePhone"
+
+                    ).value=
+
+                    office.phone1;
+
+                    document.getElementById(
+
+                        "insuranceMobile"
+
+                    ).value=
+
+                    office.mobile1;
+
+                    document.getElementById(
+
+                        "insuranceEmail"
+
+                    ).value=
+
+                    office.email;
+
+                    document.getElementById(
+
+                        "insuranceGSTIN"
+
+                    ).value=
+
+                    office.gstin;
+
+                    resultBox.innerHTML="";
+
+                };
+
+                resultBox.appendChild(div);
+
+            });
+
+        }
+    );
 
 }
