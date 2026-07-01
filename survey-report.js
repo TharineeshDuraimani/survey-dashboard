@@ -1,54 +1,53 @@
 /* ==========================================================
    SURVEY REPORT
-   PART 3A-1
+   PART 1
+   CORE INITIALIZATION
 ========================================================== */
 
 "use strict";
 
 /* ==========================================================
-   REPORT DATA
+   GLOBAL VARIABLES
 ========================================================== */
 
-let reportData = {};
-let verificationData = {};
+const Report = {
+
+    data : {},
+
+    verification : {},
+
+    preview : false,
+
+    pageWidth : 794,
+
+    pageHeight : 1123
+
+};
 
 /* ==========================================================
-   SHORTCUT
+   SHORTCUTS
 ========================================================== */
 
-const $ = (id) => document.getElementById(id);
+const $ = id => document.getElementById(id);
+
+const $$ = selector =>
+document.querySelectorAll(selector);
 
 /* ==========================================================
    SAFE VALUE
 ========================================================== */
 
-function value(v){
+function safe(value){
 
     if(
-        v === undefined ||
-        v === null ||
-        v === ""
+        value === undefined ||
+        value === null ||
+        value === ""
     ){
-
         return "-";
-
     }
 
-    return v;
-
-}
-
-/* ==========================================================
-   TEXT SETTER
-========================================================== */
-
-function setText(id,data){
-
-    const el = $(id);
-
-    if(!el) return;
-
-    el.textContent = value(data);
+    return value;
 
 }
 
@@ -75,7 +74,9 @@ function formatDate(date){
             }
         );
 
-    }catch{
+    }
+
+    catch{
 
         return date;
 
@@ -84,303 +85,41 @@ function formatDate(date){
 }
 
 /* ==========================================================
-   LOAD DATA
+   FORMAT CURRENCY
 ========================================================== */
 
-function loadSurveyData(){
-
-    reportData =
-        JSON.parse(
-            localStorage.getItem("selectedVehicle")
-        ) || {};
-
-    verificationData =
-        JSON.parse(
-            localStorage.getItem("documentVerification")
-        ) || {};
-
-}
-
-/* ==========================================================
-   HEADER
-========================================================== */
-
-function populateHeader(){
-
-    setText(
-        "reportNo",
-        reportData.surveyNo
-    );
-
-    setText(
-        "reportDate",
-        formatDate(
-            reportData.surveyDate
-        )
-    );
-
-    setText(
-        "vehicleNumber",
-        reportData.vehicleNo
-    );
-
-}
-
-/* ==========================================================
-   SECTION 1
-========================================================== */
-
-function populateSurveyDetails(){
-
-    setText(
-        "surveyNo",
-        reportData.surveyNo
-    );
-
-    setText(
-        "appointmentDate",
-        formatDate(
-            reportData.appointmentDate
-        )
-    );
-
-    setText(
-        "surveyType",
-        reportData.surveyType
-    );
-
-    setText(
-        "surveyConducted",
-        formatDate(
-            reportData.surveyDate
-        )
-    );
-
-    setText(
-        "surveyPlace",
-        reportData.placeOfSurvey
-    );
-
-    setText(
-        "appointedBy",
-        reportData.appointedBy
-    );
-
-}
-
-/* ==========================================================
-   SECTION 3
-========================================================== */
-
-function populateInsurerDetails(){
-
-    setText(
-        "company",
-        reportData.company
-    );
-
-    setText(
-        "policyNo",
-        reportData.policyNo
-    );
-
-    setText(
-        "claimNo",
-        reportData.claimNo
-    );
-
-    setText(
-        "idv",
-        reportData.idv
-    );
+function formatCurrency(value){
 
     if(
-        reportData.policyStart &&
-        reportData.policyEnd
+        value===undefined ||
+        value===null ||
+        value===""
+
     ){
 
-        setText(
-            "policyPeriod",
-            `${formatDate(reportData.policyStart)}
-             to
-             ${formatDate(reportData.policyEnd)}`
-        );
-
-    }
-    else{
-
-        setText(
-            "policyPeriod",
-            "-"
-        );
+        return "-";
 
     }
 
-    setText(
-        "endorsement",
-        reportData.endorsement
+    const number =
+    Number(
+        value.toString()
+        .replace(/,/g,"")
     );
 
-}
+    if(isNaN(number))
+        return value;
 
-/* ==========================================================
-   SECTION 4
-========================================================== */
+    return number.toLocaleString(
+        "en-IN",
+        {
 
-function populateInsuredDetails(){
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
 
-    setText(
-        "insuredName",
-        reportData.insuredName
+        }
+
     );
-
-    setText(
-        "insuredAddress",
-        reportData.address
-    );
-
-    setText(
-        "insuredMobile",
-        reportData.mobile
-    );
-
-    setText(
-        "insuredPincode",
-        reportData.pincode
-    );
-
-}
-
-/* ==========================================================
-   SECTION 5
-========================================================== */
-
-function populateVehicleDetails(){
-
-    setText(
-        "registrationNo",
-        reportData.vehicleNo
-    );
-
-    setText(
-        "ownerName",
-        reportData.owner
-    );
-
-    setText(
-        "engineNo",
-        reportData.engineNo
-    );
-
-    setText(
-        "chassisNo",
-        reportData.chassisNo
-    );
-
-    setText(
-        "make",
-        reportData.make
-    );
-
-    setText(
-        "model",
-        reportData.model
-    );
-
-    setText(
-        "bodyType",
-        reportData.bodyType
-    );
-
-    setText(
-        "vehicleClass",
-        reportData.vehicleClass
-    );
-
-    setText(
-        "colour",
-        reportData.colour
-    );
-
-    setText(
-        "fuel",
-        reportData.fuel
-    );
-
-    setText(
-        "year",
-        reportData.year
-    );
-
-    setText(
-        "odometer",
-        reportData.odometer
-    );
-
-    setText(
-        "verified",
-        reportData.rcVerified
-            ? "YES"
-            : "NO"
-    );
-
-    setText(
-        "condition",
-        reportData.preAccidentCondition
-    );
-
-}
-
-/* ==========================================================
-   SECTION 6
-========================================================== */
-
-function populateTripSheet(){
-
-    setText(
-        "tripNo",
-        reportData.tripNo
-    );
-
-    setText(
-        "tripVehicle",
-        reportData.tripVehicle
-    );
-
-    setText(
-        "tripFrom",
-        reportData.tripFrom
-    );
-
-    setText(
-        "tripTo",
-        reportData.tripTo
-    );
-
-    setText(
-        "tripLoad",
-        reportData.tripLoad
-    );
-
-}
-
-/* ==========================================================
-   REPORT
-========================================================== */
-
-function populateReport(){
-
-    populateHeader();
-
-    populateSurveyDetails();
-
-    populateInsurerDetails();
-
-    populateInsuredDetails();
-
-    populateVehicleDetails();
-
-    populateTripSheet();
 
 }
 
@@ -390,394 +129,86 @@ function populateReport(){
 
 function initializeToolbar(){
 
-    $("backBtn")
-    ?.addEventListener(
-        "click",
-        ()=>{
 
-            history.back();
-
-        }
-    );
+    /* ------------------------------
+       PREVIEW
+    ------------------------------ */
 
     $("previewBtn")
     ?.addEventListener(
         "click",
-        ()=>{
+        togglePreview
+    );
 
-            window.scrollTo({
+    /* ------------------------------
+       PRINT
+    ------------------------------ */
 
-                top:0,
+    $("printBtn")
+    ?.addEventListener(
+        "click",
+        printReport
+    );
 
-                behavior:"smooth"
+}
+/* ==========================================================
+   BACK BUTTON
+========================================================== */
 
-            });
+function initializeBackButton() {
+
+    const backBtn = document.getElementById("backBtn");
+
+    if (!backBtn) return;
+
+    backBtn.addEventListener("click", () => {
+
+        // Return to previous page if available
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+        } else {
+
+            // Fallback page
+            window.location.href = "vehicle-library.html";
 
         }
-    );
-
-}
-
-/* ==========================================================
-   INITIALIZE
-========================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
-
-        loadSurveyData();
-
-        populateReport();
-
-        populateRemainingSections();
-
-        initializeToolbar();
-
-        reportReady();
-
-        initializeDownloadButton();
-
-    }
-);
-/* ==========================================================
-   PART 3A-2
-   FIR, TP DETAILS & DOCUMENT VERIFICATION
-========================================================== */
-
-/* ==========================================================
-   CHECK MARK
-========================================================== */
-
-function mark(value){
-
-    if(
-        value === true ||
-        value === "Yes" ||
-        value === "YES" ||
-        value === "yes" ||
-        value === 1
-    ){
-
-        return '<span class="tick">✓</span>';
-
-    }
-
-    return '<span class="cross">✗</span>';
-
-}
-
-/* ==========================================================
-   SECTION 7
-   FIR DETAILS
-========================================================== */
-
-function populateFirDetails(){
-
-    const container =
-        $("firContainer");
-
-    if(!container) return;
-
-    if(
-        !reportData.firNo ||
-        reportData.firNo === ""
-    ){
-
-        container.innerHTML =
-
-        `
-        <div class="nil-box">
-
-            NIL
-
-        </div>
-        `;
-
-        return;
-
-    }
-
-    setText(
-        "firNo",
-        reportData.firNo
-    );
-
-    setText(
-        "firDate",
-        formatDate(
-            reportData.firDate
-        )
-    );
-
-    setText(
-        "policeStation",
-        reportData.policeStation
-    );
-
-    setText(
-        "mva",
-        reportData.mva
-    );
-
-    setText(
-        "ipc",
-        reportData.ipc
-    );
-
-    setText(
-        "withoutLicence",
-        reportData.driverWithoutLicence
-    );
-
-    setText(
-        "policeRecords",
-        reportData.previousPoliceRecords
-    );
-
-}
-
-/* ==========================================================
-   SECTION 8
-   THIRD PARTY
-========================================================== */
-
-function populateThirdPartyDetails(){
-
-    if(
-        reportData.tpInjury !== "Yes" &&
-        reportData.propertyDamage !== "Yes"
-    ){
-
-        setText(
-            "tpInjury",
-            "NIL"
-        );
-
-        setText(
-            "propertyDamage",
-            "NIL"
-        );
-
-        setText(
-            "tppd",
-            "NIL"
-        );
-
-        setText(
-            "tpRemarks",
-            "NIL"
-        );
-
-        return;
-
-    }
-
-    setText(
-        "tpInjury",
-        reportData.tpInjury
-    );
-
-    setText(
-        "propertyDamage",
-        reportData.propertyDamage
-    );
-
-    setText(
-        "tppd",
-        reportData.tppd
-    );
-
-    setText(
-        "tpRemarks",
-        reportData.tpRemarks
-    );
-
-}
-
-/* ==========================================================
-   DOCUMENT VERIFICATION
-========================================================== */
-
-function populateVerificationTable(){
-
-    const tbody =
-        $("verificationTable");
-
-    if(!tbody) return;
-
-    const docs = [
-
-        {
-            name:"Registration Certificate",
-            key:"rc"
-        },
-
-        {
-            name:"Driving Licence",
-            key:"dl"
-        },
-
-        {
-            name:"Permit",
-            key:"permit"
-        },
-
-        {
-            name:"Fitness Certificate",
-            key:"fitness"
-        },
-
-        {
-            name:"Tax",
-            key:"tax"
-        },
-
-        {
-            name:"Trip Sheet",
-            key:"trip"
-        },
-
-        {
-            name:"Authorization",
-            key:"authorization"
-        }
-
-    ];
-
-    tbody.innerHTML = "";
-
-    docs.forEach(doc=>{
-
-        const item =
-        verificationData[doc.key] || {};
-
-        tbody.innerHTML +=
-
-        `
-        <tr>
-
-            <td>
-
-                ${doc.name}
-
-            </td>
-
-            <td>
-
-                ${mark(item.original)}
-
-            </td>
-
-            <td>
-
-                ${mark(item.copy)}
-
-            </td>
-
-            <td>
-
-                ${mark(item.insurer)}
-
-            </td>
-
-            <td>
-
-                ${mark(item.online)}
-
-            </td>
-
-            <td>
-
-                ${mark(item.extract)}
-
-            </td>
-
-        </tr>
-        `;
 
     });
 
 }
 
 /* ==========================================================
-   COMPLETE REPORT
+   PREVIEW MODE
 ========================================================== */
 
-function populateRemainingSections(){
+function togglePreview(){
 
-    populateFirDetails();
+    Report.preview =
+    !Report.preview;
 
-    populateThirdPartyDetails();
-
-    populateVerificationTable();
-
-}
-/* ==========================================================
-   PART 3B-1
-   TOOLBAR, PREVIEW, PRINT & PAGE NUMBERING
-========================================================== */
-
-/* ==========================================================
-   SCROLL TO TOP
-========================================================== */
-
-function scrollToTop(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-/* ==========================================================
-   PREVIEW
-========================================================== */
-
-function previewReport(){
-
-    scrollToTop();
-
-    const paper =
-    document.querySelector(".report-paper");
-
-    if(!paper) return;
-
-    paper.animate(
-
-        [
-
-            {
-
-                transform:"scale(.98)",
-
-                opacity:.85
-
-            },
-
-            {
-
-                transform:"scale(1)",
-
-                opacity:1
-
-            }
-
-        ],
-
-        {
-
-            duration:300,
-
-            easing:"ease"
-
-        }
-
+    document.body.classList.toggle(
+        "preview-mode",
+        Report.preview
     );
+
+    const button =
+    $("previewBtn");
+
+    if(button){
+
+        button.innerHTML =
+
+        Report.preview ?
+
+        '<i class="fas fa-times"></i> Close Preview'
+
+        :
+
+        '<i class="fas fa-eye"></i> Preview';
+
+    }
 
 }
 
@@ -787,97 +218,104 @@ function previewReport(){
 
 function printReport(){
 
-    document.title =
-    generateFileName(false);
-
     window.print();
 
 }
 
 /* ==========================================================
-   PAGE NUMBER
+   REPORT VIEW
 ========================================================== */
 
-function addPageNumber(){
+function setupReportView(){
 
-    let page =
+    const report =
     document.querySelector(
-    ".page-number"
+        ".report-container"
     );
 
-    if(!page){
+    if(!report) return;
 
-        page =
-        document.createElement(
-        "div"
-        );
+    report.style.maxWidth="210mm";
 
-        page.className =
-        "page-number";
+    report.style.margin="0 auto";
 
-        document
-        .querySelector(
+}
+
+
+/* ==========================================================
+   AUTO SCALE
+========================================================== */
+
+function scaleReport(){
+
+    const page =
+    document.querySelector(
         ".report-paper"
-        )
-        ?.appendChild(page);
+    );
+
+    if(!page) return;
+
+    if(window.innerWidth > 1200){
+
+        page.style.transform="scale(1)";
+
+        page.style.transformOrigin="top center";
+
+        return;
 
     }
 
-    page.innerHTML =
+    const available =
+    window.innerWidth - 40;
 
-    `
-    Page 1
-    `;
+    const scale =
+    Math.min(
+        1,
+        available / Report.pageWidth
+    );
+
+    page.style.transform=
+    `scale(${scale})`;
+
+    page.style.transformOrigin=
+    "top center";
 
 }
 
 /* ==========================================================
-   FILE NAME
+   PAGE VIEW
 ========================================================== */
 
-function generateFileName(
-    includeExtension=true
-){
+function setupPageView(){
 
-    const surveyNo =
 
-        reportData.surveyNo ||
+    setupReportView();
 
-        "Survey";
-
-    const vehicle =
-
-        reportData.vehicleNo ||
-
-        "Vehicle";
-
-    let file =
-
-        `Survey_${vehicle}_${surveyNo}`;
-
-    file =
-
-        file.replace(
-
-            /[\\/:*?"<>| ]+/g,
-
-            "_"
-
-        );
-
-    if(includeExtension)
-
-        file += ".pdf";
-
-    return file;
+    scaleReport();
 
 }
+
+/* ==========================================================
+   WINDOW EVENTS
+========================================================== */
+
+window.addEventListener(
+
+    "resize",
+
+    ()=>{
+
+        scaleReport();
+
+    }
+
+);
 
 /* ==========================================================
    KEYBOARD SHORTCUTS
 ========================================================== */
 
-function initializeKeyboardShortcuts(){
+function initializeShortcuts(){
 
     document.addEventListener(
 
@@ -888,10 +326,7 @@ function initializeKeyboardShortcuts(){
             if(
 
                 e.ctrlKey &&
-
-                e.key.toLowerCase()
-
-                === "p"
+                e.key==="p"
 
             ){
 
@@ -903,11 +338,12 @@ function initializeKeyboardShortcuts(){
 
             if(
 
-                e.key === "Home"
+                e.key==="Escape" &&
+                Report.preview
 
             ){
 
-                scrollToTop();
+                togglePreview();
 
             }
 
@@ -918,373 +354,7 @@ function initializeKeyboardShortcuts(){
 }
 
 /* ==========================================================
-   TOOLBAR BUTTONS
-========================================================== */
-
-function initializeToolbarButtons(){
-
-    $("previewBtn")
-
-    ?.addEventListener(
-
-        "click",
-
-        previewReport
-
-    );
-
-    $("printBtn")
-
-    ?.addEventListener(
-
-        "click",
-
-        printReport
-
-    );
-
-}
-
-/* ==========================================================
-   REPORT READY
-========================================================== */
-
-function reportReady(){
-
-    addPageNumber();
-
-    initializeToolbarButtons();
-
-    initializeKeyboardShortcuts();
-
-    console.log(
-
-        "Survey Report Ready"
-
-    );
-
-}
-/* ==========================================================
-   PART 3B-2
-   PDF DOWNLOAD
-========================================================== */
-
-const { jsPDF } = window.jspdf;
-
-/* ==========================================================
-LOADING OVERLAY
-========================================================== */
-
-function createLoadingOverlay(){
-
-    if(document.getElementById("pdfLoading"))
-        return;
-
-    const overlay =
-    document.createElement("div");
-
-    overlay.id="pdfLoading";
-
-    overlay.innerHTML=`
-
-        <div class="pdf-loader">
-
-            <div class="spinner"></div>
-
-            <h3>
-
-                Generating PDF...
-
-            </h3>
-
-            <p>
-
-                Please wait
-
-            </p>
-
-        </div>
-
-    `;
-
-    overlay.style.cssText=`
-
-        position:fixed;
-        inset:0;
-        background:rgba(255,255,255,.95);
-
-        display:flex;
-        justify-content:center;
-        align-items:center;
-
-        z-index:99999;
-
-    `;
-
-    document.body.appendChild(
-        overlay
-    );
-
-}
-
-function removeLoadingOverlay(){
-
-    document
-    .getElementById(
-        "pdfLoading"
-    )
-    ?.remove();
-
-}
-
-/* ==========================================================
-DOWNLOAD PDF
-========================================================== */
-
-async function downloadPDF(){
-
-    try{
-
-        createLoadingOverlay();
-
-        const report =
-
-        document.querySelector(
-        ".report-paper"
-        );
-
-        const canvas =
-
-        await html2canvas(
-
-            report,
-
-            {
-
-                scale:2,
-
-                useCORS:true,
-
-                backgroundColor:"#ffffff"
-
-            }
-
-        );
-
-        const pdf =
-
-        new jsPDF(
-
-            "p",
-
-            "mm",
-
-            "a4"
-
-        );
-
-        const pageWidth =
-
-        210;
-
-        const pageHeight =
-
-        297;
-
-        const imgWidth =
-
-        pageWidth;
-
-        const imgHeight =
-
-        canvas.height *
-
-        imgWidth /
-
-        canvas.width;
-
-        const imgData =
-
-        canvas.toDataURL(
-
-            "image/png",
-
-            1.0
-
-        );
-
-        let heightLeft =
-
-        imgHeight;
-
-        let position =
-
-        0;
-
-        pdf.addImage(
-
-            imgData,
-
-            "PNG",
-
-            0,
-
-            position,
-
-            imgWidth,
-
-            imgHeight,
-
-            "",
-
-            "FAST"
-
-        );
-
-        heightLeft -=
-
-        pageHeight;
-
-        while(heightLeft > 0){
-
-            position =
-
-            heightLeft -
-
-            imgHeight;
-
-            pdf.addPage();
-
-            pdf.addImage(
-
-                imgData,
-
-                "PNG",
-
-                0,
-
-                position,
-
-                imgWidth,
-
-                imgHeight,
-
-                "",
-
-                "FAST"
-
-            );
-
-            heightLeft -=
-
-            pageHeight;
-
-        }
-
-        pdf.save(
-
-            generateFileName()
-
-        );
-
-    }
-
-    catch(err){
-
-        console.error(err);
-
-        alert(
-
-            "Unable to generate PDF."
-
-        );
-
-    }
-
-    finally{
-
-        removeLoadingOverlay();
-
-    }
-
-}
-
-/* ==========================================================
-DOWNLOAD BUTTON
-========================================================== */
-
-function initializeDownloadButton(){
-
-    $("downloadBtn")
-    ?.addEventListener(
-
-        "click",
-
-        downloadPDF
-
-    );
-
-}
-
-/* ==========================================================
-LOADER STYLE
-========================================================== */
-
-(function(){
-
-const style =
-document.createElement("style");
-
-style.innerHTML=`
-
-.pdf-loader{
-
-text-align:center;
-
-}
-
-.spinner{
-
-width:70px;
-
-height:70px;
-
-border:8px solid #dbeafe;
-
-border-top:8px solid #2563eb;
-
-border-radius:50%;
-
-margin:auto;
-
-animation:spin 1s linear infinite;
-
-}
-
-@keyframes spin{
-
-0%{
-
-transform:rotate(0);
-
-}
-
-100%{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-`;
-
-document.head.appendChild(style);
-
-})();
-
-/* ==========================================================
-FINAL INITIALIZATION
+   INITIALIZATION
 ========================================================== */
 
 document.addEventListener(
@@ -1293,14 +363,418 @@ document.addEventListener(
 
     ()=>{
 
-        initializeDownloadButton();
+        initializeToolbar();
+
+        initializeShortcuts();
+
+        setupPageView();
+
+            initializeBackButton();
+
+    initializeDownloadButton();
 
         console.log(
 
-            "PDF Generator Ready"
+            "%cSurvey Report Initialized",
+
+            "color:#2563eb;font-size:14px;font-weight:bold"
 
         );
 
     }
 
 );
+/* ==========================================================
+   PART 2
+   REPORT DATA ENGINE
+========================================================== */
+
+/* ==========================================================
+   LOAD DATA
+========================================================== */
+
+function loadReportData(){
+
+    try{
+
+        Report.data = JSON.parse(
+            localStorage.getItem("selectedVehicle")
+        ) || {};
+
+    }
+
+    catch{
+
+        Report.data = {};
+
+    }
+
+    try{
+
+        Report.verification = JSON.parse(
+            localStorage.getItem("documentVerification")
+        ) || {};
+
+    }
+
+    catch{
+
+        Report.verification = {};
+
+    }
+
+}
+
+/* ==========================================================
+   ELEMENT
+========================================================== */
+
+function element(id){
+
+    return document.getElementById(id);
+
+}
+
+/* ==========================================================
+   SET TEXT
+========================================================== */
+
+function setText(id,value){
+
+    const el = element(id);
+
+    if(!el) return;
+
+    el.textContent = safe(value);
+
+}
+
+/* ==========================================================
+   SET HTML
+========================================================== */
+
+function setHTML(id,value){
+
+    const el = element(id);
+
+    if(!el) return;
+
+    el.innerHTML = safe(value);
+
+}
+
+/* ==========================================================
+   FORMAT POLICY PERIOD
+========================================================== */
+
+function policyPeriod(){
+
+    const start = Report.data.policyStart;
+
+    const end = Report.data.policyEnd;
+
+    if(!start || !end){
+
+        return "-";
+
+    }
+
+    return `${formatDate(start)} to ${formatDate(end)}`;
+
+}
+
+/* ==========================================================
+   LOSS DATE & TIME
+========================================================== */
+
+function lossDateTime(){
+
+    const date = Report.data.lossDate;
+
+    const time = Report.data.lossTime;
+
+    if(!date && !time){
+
+        return "-";
+
+    }
+
+    if(date && !time){
+
+        return formatDate(date);
+
+    }
+
+    return `${formatDate(date)}  ${time}`;
+
+}
+
+/* ==========================================================
+   YES / NO
+========================================================== */
+
+function yesNo(value){
+
+    if(
+
+        value===true ||
+
+        value==="Yes" ||
+
+        value==="YES"
+
+    ){
+
+        return "YES";
+
+    }
+
+    return "NO";
+
+}
+
+/* ==========================================================
+   DOCUMENT STATUS
+========================================================== */
+
+function documentStatus(value){
+
+    if(
+
+        value===true ||
+
+        value==="Original"
+
+    ){
+
+        return "Original Verified";
+
+    }
+
+    if(
+
+        value==="Copy"
+
+    ){
+
+        return "Copy Verified";
+
+    }
+
+    if(
+
+        value==="NA"
+
+    ){
+
+        return "Not Applicable";
+
+    }
+
+    return "-";
+
+}
+
+/* ==========================================================
+   PAGE NUMBER
+========================================================== */
+
+function initializePageNumbers(){
+
+    const pages =
+    document.querySelectorAll(".report-paper");
+
+    pages.forEach((page,index)=>{
+
+        let footer =
+
+        page.querySelector(".page-number");
+
+        if(!footer){
+
+            footer =
+
+            document.createElement("div");
+
+            footer.className =
+
+            "page-number";
+
+            page.appendChild(footer);
+
+        }
+
+        footer.innerHTML =
+
+        `Page ${index+1} of ${pages.length}`;
+
+    });
+
+}
+
+/* ==========================================================
+   REPORT TITLE
+========================================================== */
+
+function initializeTitle(){
+
+    const reportNo =
+
+        Report.data.surveyNo ||
+
+        "Survey";
+
+    const vehicle =
+
+        Report.data.vehicleNo ||
+
+        "Vehicle";
+
+    document.title =
+
+        `${vehicle} - ${reportNo}`;
+
+}
+
+/* ==========================================================
+   INITIALIZATION
+========================================================== */
+
+function initializeReport(){
+
+    loadReportData();
+
+    initializeTitle();
+
+    initializePageNumbers();
+
+}
+/* ==========================================================
+   LOADING
+========================================================== */
+
+function showLoading() {
+
+    if (document.getElementById("pdfLoader")) return;
+
+    const loader = document.createElement("div");
+
+    loader.id = "pdfLoader";
+
+    loader.innerHTML = `
+        <div class="loader-box">
+
+            <div class="loader-spinner"></div>
+
+            <h3>Generating PDF...</h3>
+
+            <p>Please wait</p>
+
+        </div>
+    `;
+
+    document.body.appendChild(loader);
+
+}
+
+function hideLoading() {
+
+    document.getElementById("pdfLoader")?.remove();
+
+}
+/* ==========================================================
+   DOWNLOAD PDF
+========================================================== */
+
+async function downloadPDF() {
+
+    try {
+
+        showLoading();
+
+        const { jsPDF } = window.jspdf;
+
+        const pdf = new jsPDF({
+
+            orientation: "portrait",
+            unit: "mm",
+            format: "a4"
+
+        });
+
+        const pages = document.querySelectorAll(".report-paper");
+
+        for (let i = 0; i < pages.length; i++) {
+
+            const canvas = await html2canvas(pages[i], {
+
+                scale: 2.5,
+                useCORS: true,
+                backgroundColor: "#ffffff"
+
+            });
+
+            const imgData = canvas.toDataURL("image/jpeg", 1);
+
+            if (i > 0) {
+
+                pdf.addPage();
+
+            }
+
+            pdf.addImage(
+
+                imgData,
+
+                "JPEG",
+
+                0,
+
+                0,
+
+                210,
+
+                297
+
+            );
+
+        }
+
+        const reportNo =
+    Report.data?.surveyNo || "Survey";
+
+const vehicle =
+    Report.data?.vehicleNo || "Vehicle";
+
+pdf.save(`${vehicle}_${reportNo}.pdf`);
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Unable to generate PDF.");
+
+    }
+
+    finally {
+
+        hideLoading();
+
+    }
+
+}
+/* ==========================================================
+   DOWNLOAD BUTTON
+========================================================== */
+
+function initializeDownloadButton() {
+
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    if (!downloadBtn) return;
+
+    downloadBtn.addEventListener("click", downloadPDF);
+
+}
