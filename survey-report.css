@@ -1,30 +1,3 @@
-/* ==========================================================
-   SURVEY REPORT
-   PART 2A
-========================================================== */
-
-:root{
-
-    --primary:#1d4ed8;
-    --primary-dark:#1e3a8a;
-    --primary-light:#eff6ff;
-
-    --border:#dbe5ef;
-
-    --text:#1f2937;
-
-    --muted:#6b7280;
-
-    --bg:#edf3fb;
-
-    --success:#16a34a;
-
-    --danger:#dc2626;
-
-    --shadow:
-        0 15px 45px rgba(0,0,0,.08);
-
-}
 
 /* ==========================================================
 BODY
@@ -142,462 +115,394 @@ TOOLBAR
 
 }
 
-/* ==========================================================
-REPORT PAPER
-========================================================== */
+/*==================================================
+SURVEY HEADER
+==================================================*/
 
-.report-paper{
+.survey-header{
 
-    position:relative;
+    font-family:"Times New Roman",serif;
 
-    width:210mm;
+    border:1px solid #000;
 
-    min-height:297mm;
-
-    margin:auto;
-
-    background:white;
-
-    padding:24mm;
-
-    border-radius:12px;
-
-    box-shadow:var(--shadow);
-
-    overflow:hidden;
+    margin-bottom:12px;
 
 }
 
-/* ==========================================================
-WATERMARK
-========================================================== */
-
-.report-paper::before{
-
-    content:"S. SANTHANAM";
-
-    position:absolute;
-
-    top:50%;
-
-    left:50%;
-
-    transform:
-    translate(-50%,-50%)
-    rotate(-35deg);
-
-    font-size:90px;
-
-    font-weight:700;
-
-    color:#2563eb;
-
-    opacity:.04;
-
-    pointer-events:none;
-
-    white-space:nowrap;
-
-}
-
-.report-paper::after{
-
-    content:"MOTOR SURVEY REPORT";
-
-    position:absolute;
-
-    top:58%;
-
-    left:50%;
-
-    transform:
-    translate(-50%,-50%)
-    rotate(-35deg);
-
-    font-size:58px;
-
-    font-weight:700;
-
-    color:#2563eb;
-
-    opacity:.04;
-
-    pointer-events:none;
-
-    white-space:nowrap;
-
-}
-
-/* ==========================================================
-HEADER
-========================================================== */
-
-.report-header{
+.top-strip{
 
     display:flex;
 
     justify-content:space-between;
 
-    gap:40px;
+    background:#d9d9d9;
 
+    padding:8px 12px;
+
+    border-bottom:2px solid #000;
+
+}
+
+.company-name h1{
+
+    font-size:26px;
+
+    margin:0;
+
+    font-weight:700;
+
+}
+
+.company-name p{
+
+    margin:2px 0;
+
+    font-size:13px;
+
+}
+
+.company-address{
+
+    text-align:right;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+}
+
+.contact-strip{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:6px 10px;
+
+    font-size:13px;
+
+    border-bottom:2px solid #000;
+
+}
+
+.report-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#bfbfbf;
+
+    padding:8px 10px;
+
+    border-bottom:2px solid #000;
+
+}
+
+.report-heading .left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.final{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+.motor{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+}
+
+.report-heading .right{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+.disclaimer{
+
+    padding:8px 10px;
+
+    font-size:12px;
+
+    line-height:1.4;
+
+}
+.report-info{
+
+    font-family:"Times New Roman",serif;
+    border:1px solid #000;
+    border-top:none;
+    padding:10px;
+
+}
+
+.report-row{
+
+    display:flex;
+    justify-content:space-between;
     align-items:flex-start;
-
-    border-bottom:4px solid var(--primary);
-
-    padding-bottom:20px;
-
-    margin-bottom:28px;
+    gap:20px;
 
 }
 
-.header-left{
+.info-table{
 
-    flex:1;
-
-}
-
-.header-right{
-
-    width:340px;
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
 
 }
 
-.header-left h1{
+.info-table td{
 
-    color:var(--primary-dark);
+    padding:3px 4px;
+    vertical-align:top;
 
-    font-size:34px;
+}
 
-    font-weight:800;
+.label{
+
+    width:180px;
+    font-weight:bold;
+
+}
+
+.vehicle-box{
+
+    width:220px;
+    background:#e8e2cd;
+    border:1px solid #777;
+    padding:18px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:2px;
+
+}
+
+.full-width{
+
+    width:100%;
+
+}
+
+.report-divider{
+
+    border-top:2px solid #000;
+    margin:12px 0;
+
+}
+/*==================================================
+DOCUMENT VERIFICATION
+==================================================*/
+
+.document-verification{
+
+    border:1px solid #000;
+    border-top:none;
+    font-family:"Times New Roman",serif;
+
+}
+
+.section-title{
+
+    background:#bfbfbf;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    padding:5px;
+
+    border-bottom:1px solid #000;
 
     letter-spacing:.5px;
 
 }
 
-.header-left h2{
-
-    color:var(--primary);
-
-    font-size:20px;
-
-    margin-top:6px;
-
-    margin-bottom:16px;
-
-}
-
-.header-left p{
-
-    line-height:1.7;
-
-    color:#444;
-
-    font-size:15px;
-
-}
-
-.header-right p{
-
-    font-size:14px;
-
-    margin-bottom:10px;
-
-    line-height:1.6;
-
-}
-
-.header-right strong{
-
-    color:var(--primary-dark);
-
-}
-
-/* ==========================================================
-TITLE
-========================================================== */
-
-.report-title{
-
-    margin-bottom:30px;
-
-}
-
-.report-title h2{
-
-    background:linear-gradient(
-    90deg,
-    var(--primary),
-    var(--primary-dark));
-
-    color:white;
-
-    text-align:center;
-
-    padding:14px;
-
-    border-radius:12px;
-
-    font-size:28px;
-
-    letter-spacing:1px;
-
-    margin-bottom:24px;
-
-}
-
-.title-grid{
+.verification-container{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:1fr 1fr;
 
-    gap:20px;
+    gap:50px;
 
-}
-
-.title-grid div{
-
-    background:var(--primary-light);
-
-    border:1px solid var(--border);
-
-    border-radius:14px;
-
-    padding:18px;
+    padding:15px 20px;
 
 }
 
-.title-grid label{
+.verification-column{
 
-    display:block;
+    display:flex;
 
-    color:var(--muted);
+    flex-direction:column;
 
-    font-size:13px;
-
-    margin-bottom:8px;
-
-    font-weight:600;
+    gap:10px;
 
 }
 
-.title-grid p{
+.verify-row{
 
-    font-size:19px;
+    display:flex;
 
-    color:var(--primary-dark);
-
-    font-weight:700;
-
-}
-
-/* ==========================================================
-SECTION
-========================================================== */
-
-.report-section{
-
-    margin-top:30px;
-
-    page-break-inside:avoid;
-
-}
-
-.report-section h3{
-
-    background:var(--primary);
-
-    color:white;
-
-    padding:12px 18px;
-
-    border-radius:10px;
-
-    font-size:19px;
-
-    margin-bottom:15px;
-
-    letter-spacing:.3px;
-
-}
-
-/* ==========================================================
-DETAIL CONTAINER
-========================================================== */
-
-.details-container{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:20px;
-
-}
-
-/* ==========================================================
-INFO CARD
-========================================================== */
-
-.info-card{
-
-    border:1px solid var(--border);
-
-    border-radius:14px;
-
-    background:#fbfdff;
-
-    padding:18px;
-
-}
-
-.info-card h4{
-
-    color:var(--primary-dark);
-
-    margin-bottom:14px;
-
-    font-size:17px;
-
-}
-
-.info-card p{
-
-    margin-bottom:10px;
-
-    font-size:14px;
-
-}
-
-/* ==========================================================
-TEXT STYLES
-========================================================== */
-
-.text-muted{
-
-    color:var(--muted);
-
-}
-
-.text-primary{
-
-    color:var(--primary-dark);
-
-}
-
-.text-center{
-
-    text-align:center;
-
-}
-
-.text-right{
-
-    text-align:right;
-
-}
-
-.text-bold{
-
-    font-weight:700;
-
-}
-
-/* ==========================================================
-HORIZONTAL RULE
-========================================================== */
-
-.report-divider{
-
-    border:none;
-
-    border-top:1px solid var(--border);
-
-    margin:30px 0;
-
-}
-
-/* ==========================================================
-BADGES
-========================================================== */
-
-.badge{
-
-    display:inline-flex;
+    justify-content:space-between;
 
     align-items:center;
 
-    justify-content:center;
+    border-bottom:1px dotted #999;
 
-    padding:5px 12px;
+    padding:4px 0;
 
-    border-radius:20px;
+}
 
-    font-size:12px;
+.doc-name{
+
+    font-size:15px;
 
     font-weight:600;
 
 }
 
-.badge.success{
+.verify-status{
 
-    background:#dcfce7;
+    font-size:14px;
 
-    color:#166534;
-
-}
-
-.badge.warning{
-
-    background:#fef3c7;
-
-    color:#92400e;
+    font-weight:bold;
 
 }
 
-.badge.danger{
+.original{
 
-    background:#fee2e2;
-
-    color:#991b1b;
+    color:#000;
 
 }
 
-.badge.primary{
+.copy{
 
-    background:#dbeafe;
-
-    color:#1d4ed8;
+    color:#444;
 
 }
-/* ==========================================================
-   PART 2B
-   TABLES
-========================================================== */
 
-.details-table,
-.verification-table{
+.na{
+
+    color:#666;
+
+}
+
+.gst-row{
+
+    border-top:1px solid #000;
+
+    padding:8px 20px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+/*==================================================
+INSURER / INSURED
+==================================================*/
+
+.report-box{
+
+    border:1px solid #000;
+    border-top:none;
+    font-family:"Times New Roman",serif;
+
+}
+
+.box-heading{
+
+    background:#bfbfbf;
+
+    padding:4px 10px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    border-bottom:1px solid #000;
+
+}
+
+.box-content{
+
+    min-height:120px;
+
+    position:relative;
+
+    padding:15px;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+.gst-right{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    font-weight:bold;
+
+}
+
+.insured-box{
+
+    min-height:150px;
+
+}
+
+/*==================================================
+INSURER / INSURED TABLE
+==================================================*/
+
+.details-grid{
 
     width:100%;
 
     border-collapse:collapse;
 
-    border:1px solid var(--border);
-
-    margin-top:12px;
-
-    background:white;
+    font-family:"Times New Roman",serif;
 
 }
 
-.details-table th,
-.details-table td{
+.details-grid td{
 
-    border:1px solid var(--border);
-
-    padding:12px 14px;
+    padding:7px 8px;
 
     font-size:14px;
 
@@ -605,219 +510,87 @@ BADGES
 
 }
 
-.details-table th{
+.details-grid .label{
 
-    width:22%;
+    width:150px;
 
-    background:#f8fbff;
+    font-weight:bold;
 
-    color:var(--primary-dark);
-
-    font-weight:700;
+    white-space:nowrap;
 
 }
 
-.details-table td{
+.details-grid tr{
 
-    width:28%;
-
-    color:#374151;
-
-    min-height:32px;
+    border-bottom:1px dotted #bcbcbc;
 
 }
 
-/* ==========================================================
-VERIFICATION TABLE
-========================================================== */
+.details-grid tr:last-child{
 
-.verification-table{
-
-    table-layout:fixed;
+    border-bottom:none;
 
 }
+/*==================================================
+VEHICLE DETAILS
+==================================================*/
 
-.verification-table thead th{
+.vehicle-table{
 
-    background:var(--primary);
-
-    color:white;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    text-align:center;
-
-    padding:14px;
-
-}
-
-.verification-table tbody td{
-
-    border:1px solid var(--border);
-
-    padding:12px;
-
-    text-align:center;
-
+    width:100%;
+    border-collapse:collapse;
+    font-family:"Times New Roman",serif;
     font-size:14px;
 
 }
 
-.verification-table tbody td:first-child{
+.vehicle-table td{
 
-    text-align:left;
-
-    font-weight:600;
-
-    color:var(--primary-dark);
+    padding:7px 8px;
+    vertical-align:top;
 
 }
 
-.verification-table tbody tr:nth-child(even){
+.vehicle-table .label{
 
-    background:#f8fbff;
-
-}
-
-.verification-table tbody tr:hover{
-
-    background:#edf6ff;
+    width:190px;
+    font-weight:bold;
+    white-space:nowrap;
 
 }
 
-/* ==========================================================
-CHECK MARK
-========================================================== */
+.vehicle-table tr{
 
-.tick{
-
-    color:#16a34a;
-
-    font-weight:700;
-
-    font-size:18px;
+    border-bottom:1px dotted #bfbfbf;
 
 }
 
-.cross{
+.vehicle-table tr:last-child{
 
-    color:#dc2626;
+    border-bottom:none;
 
-    font-weight:700;
+}
+/*==================================================
+SURVEYOR FOOTER
+==================================================*/
 
-    font-size:18px;
+.surveyor-footer{
+
+    margin-top:35px;
+
+    font-family:"Times New Roman",serif;
 
 }
 
-/* ==========================================================
-NIL BOX
-========================================================== */
+.footer-top-line{
 
-.nil-box{
+    border-top:2px solid #000;
 
-    border:2px dashed #cbd5e1;
-
-    border-radius:12px;
-
-    padding:22px;
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    color:#64748b;
-
-    background:#f8fafc;
+    margin-bottom:20px;
 
 }
 
-/* ==========================================================
-REMARKS
-========================================================== */
-
-.remarks-box{
-
-    border:2px solid var(--border);
-
-    border-radius:12px;
-
-    height:160px;
-
-    background:white;
-
-    margin-top:15px;
-
-    position:relative;
-
-}
-
-.remarks-box::before{
-
-    content:"Write surveyor observations here...";
-
-    position:absolute;
-
-    top:15px;
-
-    left:18px;
-
-    color:#94a3b8;
-
-    font-size:14px;
-
-}
-
-/* ==========================================================
-SIGNATURE
-========================================================== */
-
-.signature{
-
-    margin-top:60px;
-
-    width:300px;
-
-    margin-left:auto;
-
-    text-align:center;
-
-}
-
-.signature p{
-
-    font-size:15px;
-
-    color:#374151;
-
-    margin-bottom:6px;
-
-}
-
-.signature h3{
-
-    color:var(--primary-dark);
-
-    font-size:24px;
-
-    margin-bottom:8px;
-
-}
-
-/* ==========================================================
-FOOTER
-========================================================== */
-
-.report-footer{
-
-    margin-top:60px;
-
-    border-top:2px solid var(--primary);
-
-    padding-top:20px;
+.signature-section{
 
     display:flex;
 
@@ -827,49 +600,164 @@ FOOTER
 
 }
 
-.footer-left{
+.place-date{
 
-    color:#64748b;
-
-    font-size:13px;
+    width:38%;
 
 }
 
-.footer-right{
+.place-row{
 
-    color:#64748b;
+    display:flex;
 
-    font-size:13px;
+    align-items:center;
 
-    text-align:right;
+    margin:18px 0;
 
 }
 
-/* ==========================================================
-PAGE NUMBER
-========================================================== */
+.footer-label{
 
-.page-number{
+    width:60px;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+
+.footer-line{
+
+    flex:1;
+
+    border-bottom:1px solid #000;
+
+    margin-left:10px;
+
+}
+
+.signature-block{
+
+    width:42%;
 
     text-align:center;
 
-    margin-top:30px;
-
-    color:#64748b;
-
-    font-size:13px;
+    position:relative;
 
 }
 
-/* ==========================================================
+.official-seal{
+
+    width:115px;
+
+    position:absolute;
+
+    left:-70px;
+
+    top:5px;
+
+    opacity:.92;
+
+}
+
+.official-signature{
+
+    width:165px;
+
+    margin-bottom:15px;
+
+}
+
+.signature-block h3{
+
+    font-size:20px;
+
+    margin:6px 0;
+
+    font-weight:bold;
+
+}
+
+.signature-block p{
+
+    margin:3px 0;
+
+    font-size:14px;
+
+}
+
+.footer-bottom-line{
+
+    border-top:2px solid #000;
+
+    margin-top:30px;
+
+}
+/*==================================================
+PREVIEW MODE
+==================================================*/
+
+.preview-mode{
+
+    background:#7f8c99;
+
+    overflow:auto;
+
+}
+
+.preview-mode .report-paper{
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.35);
+
+}
+
+/*==================================================
+REPORT CONTAINER
+==================================================*/
+
+.report-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+/*==================================================
+A4 PAPER
+==================================================*/
+
+.report-paper{
+
+    width:210mm;
+
+    min-height:297mm;
+
+    background:#fff;
+
+    padding:12mm;
+
+    box-shadow:
+
+        0 8px 35px rgba(0,0,0,.15);
+
+}
+
+/*==================================================
 PRINT
-========================================================== */
+==================================================*/
 
 @page{
 
     size:A4;
 
-    margin:12mm;
+    margin:8mm;
 
 }
 
@@ -889,241 +777,99 @@ PRINT
 
     }
 
-    .report-page{
-
-        width:100%;
-
-        max-width:none;
-
-        margin:0;
-
-    }
-
     .report-paper{
 
-        width:100%;
+        width:210mm;
 
-        min-height:auto;
+        min-height:297mm;
+
+        box-shadow:none;
 
         margin:0;
 
         padding:0;
 
-        border-radius:0;
-
-        box-shadow:none;
-
-        overflow:visible;
-
-    }
-
-    .report-section{
-
-        page-break-inside:avoid;
-
-    }
-
-    .details-table{
-
-        page-break-inside:avoid;
-
-    }
-
-    .verification-table{
-
-        page-break-inside:avoid;
-
-    }
-
-    .report-paper::before,
-
-    .report-paper::after{
-
-        opacity:.03;
+        transform:none !important;
 
     }
 
 }
+/*==================================================
+PAGE NUMBER
+==================================================*/
 
-/* ==========================================================
-PAGE BREAK
-========================================================== */
+.page-number{
 
-.page-break{
+    position:absolute;
 
-    page-break-before:always;
+    bottom:10mm;
 
-    break-before:page;
+    right:10mm;
+
+    font-size:11px;
+
+    font-family:"Times New Roman",serif;
+
+}
+/*==================================================
+PDF LOADER
+==================================================*/
+
+#pdfLoader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,255,255,.95);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
 
 }
 
-/* ==========================================================
-RESPONSIVE
-========================================================== */
+.loader-box{
 
-@media(max-width:1100px){
+    text-align:center;
 
-    body{
-
-        padding:20px;
-
-    }
-
-    .report-paper{
-
-        width:100%;
-
-        padding:30px;
-
-    }
-
-    .report-header{
-
-        flex-direction:column;
-
-    }
-
-    .header-right{
-
-        width:100%;
-
-    }
-
-    .title-grid{
-
-        grid-template-columns:1fr;
-
-    }
+    font-family:"Segoe UI";
 
 }
 
-@media(max-width:768px){
+.loader-spinner{
 
-    body{
+    width:70px;
 
-        padding:10px;
+    height:70px;
 
-    }
+    margin:auto auto 20px;
 
-    .report-paper{
+    border:8px solid #dbeafe;
 
-        padding:18px;
+    border-top:8px solid #2563eb;
 
-    }
+    border-radius:50%;
 
-    .report-toolbar{
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-    }
-
-    .toolbar-right{
-
-        width:100%;
-
-        display:grid;
-
-        grid-template-columns:repeat(3,1fr);
-
-    }
-
-    .toolbar-btn{
-
-        width:100%;
-
-    }
-
-    .report-title h2{
-
-        font-size:22px;
-
-    }
-
-    .details-table{
-
-        display:block;
-
-        overflow-x:auto;
-
-    }
-
-    .verification-table{
-
-        display:block;
-
-        overflow-x:auto;
-
-    }
-
-    .details-table th,
-
-    .details-table td,
-
-    .verification-table th,
-
-    .verification-table td{
-
-        white-space:nowrap;
-
-    }
-
-    .signature{
-
-        width:100%;
-
-        margin-left:0;
-
-        margin-top:40px;
-
-    }
+    animation:spin 1s linear infinite;
 
 }
 
-@media(max-width:480px){
+@keyframes spin{
 
-    .toolbar-right{
+    from{
 
-        grid-template-columns:1fr;
-
-    }
-
-    .report-header h1{
-
-        font-size:28px;
+        transform:rotate(0deg);
 
     }
 
-    .report-header h2{
+    to{
 
-        font-size:18px;
-
-    }
-
-    .report-title h2{
-
-        font-size:20px;
-
-    }
-
-    .details-table th,
-
-    .details-table td{
-
-        font-size:13px;
-
-        padding:10px;
-
-    }
-
-    .verification-table th,
-
-    .verification-table td{
-
-        font-size:12px;
-
-        padding:10px;
+        transform:rotate(360deg);
 
     }
 
