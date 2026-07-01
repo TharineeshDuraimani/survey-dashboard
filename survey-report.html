@@ -18,807 +18,917 @@
 </head>
 
 <body>
-
 <div class="report-page">
 
-<!-- =======================================================
-TOP TOOLBAR
-======================================================= -->
+    <!-- ==========================================
+         TOOLBAR
+    =========================================== -->
 
-<div class="report-toolbar">
+    <div class="report-toolbar">
 
-    <button id="backBtn" class="toolbar-btn">
-
-        <i class="fas fa-arrow-left"></i>
-
-        Back
-
-    </button>
-
-    <div class="toolbar-right">
-
-        <button id="previewBtn" class="toolbar-btn">
-
-            <i class="fas fa-eye"></i>
-
-            Preview
-
+        <button id="backBtn" class="toolbar-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back
         </button>
 
-        <button id="printBtn" class="toolbar-btn">
+        <div class="toolbar-right">
 
-            <i class="fas fa-print"></i>
+            <button id="previewBtn" class="toolbar-btn">
+                <i class="fas fa-eye"></i>
+                Preview
+            </button>
 
-            Print
+            <button id="printBtn" class="toolbar-btn">
+                <i class="fas fa-print"></i>
+                Print
+            </button>
 
-        </button>
+            <button id="downloadBtn"
+                    class="toolbar-btn primary">
 
-        <button id="downloadBtn" class="toolbar-btn primary">
+                <i class="fas fa-download"></i>
 
-            <i class="fas fa-download"></i>
+                Download PDF
 
-            Download PDF
+            </button>
 
-        </button>
+        </div>
 
     </div>
 
-</div>
 
-<!-- =======================================================
-REPORT
-======================================================= -->
+<div class="report-container">
+<section class="report-paper">    
+    <!-- ===================================================
+REPORT HEADER
+=================================================== -->
 
-<div class="report-paper">
+<header class="survey-header">
 
-<!-- =======================================================
-HEADER
-======================================================= -->
+    <!-- Top Grey Bar -->
 
-<header class="report-header">
+    <div class="top-strip">
 
-<div class="header-left">
+        <div class="company-name">
 
-<h1>
+            <h1>S. SANTHANAM</h1>
 
-S. SANTHANAM
+            <p><b>(Surveyor & Loss Assessor)</b></p>
 
-</h1>
+            <p>Licence No. SLA 122030 valid upto 23.02.2027</p>
 
-<h2>
+            <p>IIISLA No. L / S / 10870</p>
 
-Surveyor & Loss Assessor
+        </div>
 
-</h2>
+        <div class="company-address">
 
-<p>
+            <p><b>Address :</b></p>
 
-90-C, Sri Krishna Complex
+            <p>90-C, Sri Krishna Complex</p>
 
-</p>
+            <p>Nall Road, Somanur Road</p>
 
-<p>
+            <p>Karumathampatti</p>
 
-Nall Road, Somanur Road
+            <p>Coimbatore - 641659</p>
 
-</p>
+        </div>
 
-<p>
+    </div>
 
-Karumathampatti - 641659
+    <!-- Contact -->
 
-</p>
+    <div class="contact-strip">
 
-<p>
+        <span><b>Mobile :</b> 97877 35590</span>
 
-Coimbatore
+        <span><b>Mobile :</b> 73055 35590</span>
 
-</p>
+        <span><b>Email :</b> santhanamsurveyor@gmail.com</span>
 
-</div>
+    </div>
 
-<div class="header-right">
+    <!-- Title -->
 
-<p>
+    <div class="report-heading">
 
-<strong>Licence No :</strong>
+        <div class="left">
 
-SLA 122030
+            <span class="final">FINAL</span>
 
-</p>
+            <span class="motor">MOTOR SURVEY REPORT</span>
 
-<p>
+        </div>
 
-<strong>Valid upto :</strong>
+        <div class="right">
 
-23.02.2027
+            <span id="reportNo">26-154</span>
 
-</p>
+        </div>
 
-<p>
+    </div>
 
-<strong>IIISLA No :</strong>
+    <!-- Disclaimer -->
 
-L/S/10870
+    <div class="disclaimer">
 
-</p>
+        This report is issued without any prejudice in respect of
+        cause, nature and extent of loss / damages subject to the
+        terms and conditions of the insurance policy.
 
-<p>
-
-<strong>Mobile :</strong>
-
-97877 35590
-
-</p>
-
-<p>
-
-73055 35590
-
-</p>
-
-<p>
-
-<strong>Email :</strong>
-
-santhanamsurveyor@gmail.com
-
-</p>
-
-</div>
+    </div>
 
 </header>
 
-<!-- =======================================================
-TITLE
-======================================================= -->
+<section class="report-info">
 
-<section class="report-title">
+    <div class="report-row">
 
-<h2>
+        <div class="report-left">
 
-MOTOR SURVEY REPORT
+            <table class="info-table">
 
-</h2>
+                <tr>
+                    <td class="label">Policy No.</td>
+                    <td>:</td>
+                    <td id="policyNo"></td>
+                </tr>
 
-<div class="title-grid">
+                <tr>
+                    <td class="label">Claim No. / File No.</td>
+                    <td>:</td>
+                    <td id="claimNo"></td>
+                </tr>
 
-<div>
+            </table>
 
-<label>
+        </div>
 
-Survey Report No
+        <div class="vehicle-box">
 
-</label>
+            <span id="registrationNo"></span>
 
-<p id="reportNo">-</p>
+        </div>
 
-</div>
+    </div>
 
-<div>
+    <div class="report-divider"></div>
 
-<label>
+    <table class="info-table full-width">
 
-Survey Date
+        <tr>
 
-</label>
+            <td class="label">Period</td>
+            <td>:</td>
+            <td id="policyPeriod"></td>
 
-<p id="reportDate">-</p>
+            <td class="label">Policy Type</td>
+            <td>:</td>
+            <td id="policyType"></td>
 
-</div>
+        </tr>
 
-<div>
+        <tr>
 
-<label>
+            <td class="label">Insured's Declared Value</td>
+            <td>:</td>
+            <td id="idv"></td>
 
-Vehicle Number
+            <td></td>
+            <td></td>
+            <td></td>
 
-</label>
+        </tr>
 
-<p id="vehicleNumber">-</p>
+    </table>
 
-</div>
+    <div class="report-divider"></div>
 
-</div>
+    <table class="info-table full-width">
+
+        <tr>
+
+            <td class="label">Date & Time of Loss</td>
+            <td>:</td>
+            <td id="lossDateTime"></td>
+
+        </tr>
+
+        <tr>
+
+            <td class="label">Place of Accident</td>
+            <td>:</td>
+            <td id="placeOfAccident"></td>
+
+        </tr>
+
+        <tr>
+
+            <td class="label">Survey Allotted On</td>
+            <td>:</td>
+            <td id="surveyAllotted"></td>
+
+        </tr>
+
+        <tr>
+
+            <td class="label">Survey Conducted On</td>
+            <td>:</td>
+            <td id="surveyConducted"></td>
+
+        </tr>
+
+        <tr>
+
+            <td class="label">Survey Allotted By</td>
+            <td>:</td>
+            <td id="surveyBy"></td>
+
+        </tr>
+
+    </table>
+
+    <div class="report-divider"></div>
+
+    <table class="info-table full-width">
+
+        <tr>
+
+            <td class="label">Place of Survey</td>
+            <td>:</td>
+            <td id="placeOfSurvey"></td>
+
+        </tr>
+
+        <tr>
+
+            <td class="label">Financier</td>
+            <td>:</td>
+            <td id="financier"></td>
+
+        </tr>
+
+    </table>
 
 </section>
 
-<!-- =======================================================
-SECTION 1
-======================================================= -->
+<!-- ===========================================================
+DOCUMENT VERIFICATION
+=========================================================== -->
 
-<section class="report-section">
+<section class="document-verification">
 
-<h3>
+    <div class="section-title">
 
-1. Survey Details
+        DOCUMENT VERIFICATION
 
-</h3>
+    </div>
 
-<table class="details-table">
+    <div class="verification-container">
 
-<tr>
-<th>Survey Number</th>
-<td id="surveyNo"></td>
+        <!-- Left -->
 
-<th>Appointment Date</th>
-<td id="appointmentDate"></td>
-</tr>
+        <div class="verification-column">
 
-<tr>
-<th>Survey Type</th>
-<td id="surveyType"></td>
+            <div class="verify-row">
 
-<th>Survey Conducted</th>
-<td id="surveyConducted"></td>
-</tr>
+                <span class="doc-name">• R.C Book</span>
 
-<tr>
-<th>Place of Survey</th>
-<td id="surveyPlace"></td>
+                <span id="rcBookStatus"></span>
 
-<th>Appointed By</th>
-<td id="appointedBy"></td>
-</tr>
+            </div>
 
-</table>
+            <div class="verify-row">
+
+                <span class="doc-name">• Driving Licence</span>
+
+                <span id="dlStatus"></span>
+
+            </div>
+
+            <div class="verify-row">
+
+                <span class="doc-name">• Permit</span>
+
+                <span id="permitStatus"></span>
+
+            </div>
+
+            <div class="verify-row">
+
+                <span class="doc-name">• Insurance Policy</span>
+
+                <span id="policyStatus"></span>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="verification-column">
+
+            <div class="verify-row">
+
+                <span class="doc-name">Trip Sheet</span>
+
+                <span id="tripStatus"></span>
+
+            </div>
+
+            <div class="verify-row">
+
+                <span class="doc-name">Tax Card</span>
+
+                <span id="taxStatus"></span>
+
+            </div>
+
+            <div class="verify-row">
+
+                <span class="doc-name">Fitness Certificate</span>
+
+                <span id="fcStatus"></span>
+
+            </div>
+
+            <div class="verify-row">
+
+                <span class="doc-name">Authorization</span>
+
+                <span id="authStatus"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="gst-row">
+
+        <span>GST NO.</span>
+
+        <span id="gstNumber"></span>
+
+    </div>
 
 </section>
 
-<!-- =======================================================
-SECTION 2
-======================================================= -->
+<!-- ===========================================================
+INSURER
+=========================================================== -->
 
-<section class="report-section">
+<section class="report-box">
 
-<h3>
+    <div class="box-heading">
 
-2. Document Verification
+        I&nbsp;&nbsp;INSURER
 
-</h3>
+    </div>
 
-<table class="verification-table">
+    <table class="details-grid">
 
-<thead>
+        <tr>
 
-<tr>
+            <td class="label">Insurance Company</td>
+            <td>:</td>
+            <td id="insuranceCompany"></td>
 
-<th>Document</th>
+            <td class="label">Policy Number</td>
+            <td>:</td>
+            <td id="policyNo2"></td>
 
-<th>Original</th>
+        </tr>
 
-<th>Copy</th>
+        <tr>
 
-<th>Insurer</th>
+            <td class="label">Claim Number</td>
+            <td>:</td>
+            <td id="claimNo2"></td>
 
-<th>Online</th>
+            <td class="label">IDV</td>
+            <td>:</td>
+            <td id="idv2"></td>
 
-<th>Extract</th>
+        </tr>
 
-</tr>
+        <tr>
 
-</thead>
+            <td class="label">Policy Period</td>
+            <td>:</td>
+            <td id="policyPeriod2"></td>
 
-<tbody id="verificationTable">
+            <td class="label">Endorsement</td>
+            <td>:</td>
+            <td id="endorsement"></td>
 
-<tr>
+        </tr>
 
-<td>Registration Certificate</td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td>Driving Licence</td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td>Permit</td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td>Fitness Certificate</td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td>Tax</td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td>Trip Sheet</td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-</tbody>
-
-</table>
+    </table>
 
 </section>
 
-<!-- =======================================================
-SECTION 3
-======================================================= -->
+<!-- ===========================================================
+INSURED
+=========================================================== -->
 
-<section class="report-section">
+<section class="report-box">
 
-<h3>
+    <div class="box-heading">
 
-3. Insurer Details
+        II&nbsp;&nbsp;INSURED
 
-</h3>
+    </div>
 
-<table class="details-table">
+    <table class="details-grid">
 
-<tr>
+        <tr>
 
-<th>Insurance Company</th>
+            <td class="label">Name</td>
+            <td>:</td>
+            <td colspan="4" id="insuredName"></td>
 
-<td id="company"></td>
+        </tr>
 
-<th>Policy Number</th>
+        <tr>
 
-<td id="policyNo"></td>
+            <td class="label">Address</td>
+            <td>:</td>
+            <td colspan="4" id="insuredAddress"></td>
 
-</tr>
+        </tr>
 
-<tr>
+        <tr>
 
-<th>Claim Number</th>
+            <td class="label">Mobile</td>
+            <td>:</td>
+            <td id="insuredMobile"></td>
 
-<td id="claimNo"></td>
+            <td class="label">Pincode</td>
+            <td>:</td>
+            <td id="insuredPincode"></td>
 
-<th>IDV</th>
+        </tr>
 
-<td id="idv"></td>
+    </table>
 
-</tr>
+</section>
+</section>
+<section class="report-paper">
+<!-- ===========================================================
+III VEHICLE DETAILS
+=========================================================== -->
 
-<tr>
+<section class="report-box">
 
-<th>Policy Period</th>
+    <div class="box-heading">
 
-<td id="policyPeriod"></td>
+        III&nbsp;&nbsp;VEHICLE DETAILS
 
-<th>Endorsement</th>
+    </div>
 
-<td id="endorsement"></td>
+    <table class="vehicle-table">
 
-</tr>
+        <tr>
+            <td class="label">Registration No.</td>
+            <td>:</td>
+            <td id="registrationNo"></td>
 
-</table>
+            <td class="label">Date of Registration</td>
+            <td>:</td>
+            <td id="registrationDate"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Make</td>
+            <td>:</td>
+            <td id="make"></td>
+
+            <td class="label">Year of Manufacture</td>
+            <td>:</td>
+            <td id="manufactureYear"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Chassis No.</td>
+            <td>:</td>
+            <td id="chassisNo"></td>
+
+            <td class="label">Engine No.</td>
+            <td>:</td>
+            <td id="engineNo"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Type of Body</td>
+            <td>:</td>
+            <td id="bodyType"></td>
+
+            <td class="label">Class of Vehicle</td>
+            <td>:</td>
+            <td id="vehicleClass"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Pre Accident Condition</td>
+            <td>:</td>
+            <td id="preAccidentCondition"></td>
+
+            <td class="label">Meter Reading</td>
+            <td>:</td>
+            <td id="odometer"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Tax Paid & Validity</td>
+            <td>:</td>
+            <td id="taxValidity"></td>
+
+            <td class="label">F.C. No.</td>
+            <td>:</td>
+            <td id="fitnessCertificate"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Permit No.</td>
+            <td>:</td>
+            <td id="permitNumber"></td>
+
+            <td class="label">Route as per Permit</td>
+            <td>:</td>
+            <td id="permitRoute"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Unladen Weight (Kgs)</td>
+            <td>:</td>
+            <td id="unladenWeight"></td>
+
+            <td class="label">Registered Laden Weight (Kgs)</td>
+            <td>:</td>
+            <td id="ladenWeight"></td>
+        </tr>
+
+        <tr>
+            <td class="label">Carrying Capacity (No./Kg)</td>
+            <td>:</td>
+            <td id="carryingCapacity" colspan="4"></td>
+        </tr>
+
+    </table>
 
 </section>
 
-<!-- =======================================================
-SECTION 4
-======================================================= -->
+<!-- ===========================================================
+IV DRIVER DETAILS
+=========================================================== -->
 
-<section class="report-section">
+<section class="report-box">
 
-<h3>
+    <div class="box-heading">
 
-4. Insured Details
+        IV&nbsp;&nbsp;DRIVER DETAILS
 
-</h3>
+    </div>
 
-<table class="details-table">
+    <table class="vehicle-table">
 
-<tr>
+        <tr>
 
-<th>Name</th>
+            <td class="label">Name of Driver</td>
+            <td>:</td>
+            <td id="driverName"></td>
 
-<td id="insuredName"></td>
+            <td class="label">Driving Licence No.</td>
+            <td>:</td>
+            <td id="drivingLicenceNo"></td>
 
-</tr>
+        </tr>
 
-<tr>
+        <tr>
 
-<th>Address</th>
+            <td class="label">Date of First Issue</td>
+            <td>:</td>
+            <td id="dlIssueDate"></td>
 
-<td id="insuredAddress"></td>
+            <td class="label">Validity</td>
+            <td>:</td>
+            <td id="dlValidity"></td>
 
-</tr>
+        </tr>
 
-<tr>
+        <tr>
 
-<th>Mobile</th>
+            <td class="label">Issuing Authority</td>
+            <td>:</td>
+            <td id="issuingAuthority"></td>
 
-<td id="insuredMobile"></td>
+            <td class="label">Badge No.</td>
+            <td>:</td>
+            <td id="badgeNumber"></td>
 
-</tr>
+        </tr>
 
-<tr>
+        <tr>
 
-<th>Pincode</th>
+            <td class="label">Authorised to Drive</td>
+            <td>:</td>
+            <td colspan="4" id="authorisedVehicle"></td>
 
-<td id="insuredPincode"></td>
+        </tr>
 
-</tr>
-
-</table>
+    </table>
 
 </section>
 
-<!-- =======================================================
-SECTION 5
-======================================================= -->
+<!-- ===========================================================
+V TRIP SHEET
+=========================================================== -->
 
-<section class="report-section">
+<section class="report-box">
 
-<h3>
+    <div class="box-heading">
 
-5. Vehicle Details
+        V&nbsp;&nbsp;TRIP SHEET
 
-</h3>
+    </div>
 
-<table class="details-table">
+    <table class="vehicle-table">
 
-<tr>
+        <tr>
 
-<th>Registration No</th>
+            <td class="label">Trip Sheet No.</td>
+            <td>:</td>
+            <td id="tripSheetNo"></td>
 
-<td id="registrationNo"></td>
+            <td class="label">Trip Date</td>
+            <td>:</td>
+            <td id="tripDate"></td>
 
-<th>Owner</th>
+        </tr>
 
-<td id="ownerName"></td>
+        <tr>
 
-</tr>
+            <td class="label">Origin</td>
+            <td>:</td>
+            <td id="tripOrigin"></td>
 
-<tr>
+            <td class="label">Destination</td>
+            <td>:</td>
+            <td id="tripDestination"></td>
 
-<th>Engine No</th>
+        </tr>
 
-<td id="engineNo"></td>
+        <tr>
 
-<th>Chassis No</th>
+            <td class="label">Vehicle Type</td>
+            <td>:</td>
+            <td id="tripVehicleType"></td>
 
-<td id="chassisNo"></td>
+            <td class="label">Load Type</td>
+            <td>:</td>
+            <td id="tripLoadType"></td>
 
-</tr>
+        </tr>
 
-<tr>
+        <tr>
 
-<th>Make</th>
+            <td class="label">Passenger Count</td>
+            <td>:</td>
+            <td id="passengerCount"></td>
 
-<td id="make"></td>
+            <td class="label">Goods / Tonnage</td>
+            <td>:</td>
+            <td id="goodsWeight"></td>
 
-<th>Model</th>
+        </tr>
 
-<td id="model"></td>
+        <tr>
 
-</tr>
+            <td class="label">Trip Remarks</td>
+            <td>:</td>
+            <td colspan="4" id="tripRemarks"></td>
 
-<tr>
+        </tr>
 
-<th>Body Type</th>
-
-<td id="bodyType"></td>
-
-<th>Vehicle Class</th>
-
-<td id="vehicleClass"></td>
-
-</tr>
-
-<tr>
-
-<th>Colour</th>
-
-<td id="colour"></td>
-
-<th>Fuel</th>
-
-<td id="fuel"></td>
-
-</tr>
-
-<tr>
-
-<th>Manufacture</th>
-
-<td id="year"></td>
-
-<th>Odometer</th>
-
-<td id="odometer"></td>
-
-</tr>
-
-<tr>
-
-<th>Physically Verified</th>
-
-<td id="verified"></td>
-
-<th>Pre Accident Condition</th>
-
-<td id="condition"></td>
-
-</tr>
-
-</table>
+    </table>
 
 </section>
 
-<!-- =======================================================
-SECTION 6
-======================================================= -->
+<!-- ===========================================================
+VII FIR DETAILS
+=========================================================== -->
 
-<section class="report-section">
+<section class="report-box">
 
-<h3>
+    <div class="box-heading">
 
-6. Trip Sheet
+        VII&nbsp;&nbsp;FIR DETAILS
 
-</h3>
+    </div>
 
-<table class="details-table">
+    <table class="vehicle-table">
 
-<tr>
+        <tr>
 
-<th>Trip Sheet No</th>
+            <td class="label">FIR / GDR No.</td>
+            <td>:</td>
+            <td id="firNumber"></td>
 
-<td id="tripNo"></td>
+            <td class="label">FIR Date</td>
+            <td>:</td>
+            <td id="firDate"></td>
 
-<th>Vehicle Type</th>
+        </tr>
 
-<td id="tripVehicle"></td>
+        <tr>
 
-</tr>
+            <td class="label">Police Station</td>
+            <td>:</td>
+            <td id="policeStation"></td>
 
-<tr>
+            <td class="label">Certificate No.</td>
+            <td>:</td>
+            <td id="certificateNumber"></td>
 
-<th>From</th>
+        </tr>
 
-<td id="tripFrom"></td>
+        <tr>
 
-<th>To</th>
+            <td class="label">Motor Vehicle Act</td>
+            <td>:</td>
+            <td id="motorVehicleAct"></td>
 
-<td id="tripTo"></td>
+            <td class="label">IPC Sections</td>
+            <td>:</td>
+            <td id="ipcSections"></td>
 
-</tr>
+        </tr>
 
-<tr>
+        <tr>
 
-<th>Passengers / Tonnage</th>
+            <td class="label">Driver Without Licence</td>
+            <td>:</td>
+            <td id="driverWithoutLicence"></td>
 
-<td colspan="3" id="tripLoad"></td>
+            <td class="label">Previous Police Records</td>
+            <td>:</td>
+            <td id="previousPoliceRecords"></td>
 
-</tr>
+        </tr>
 
-</table>
+        <tr>
 
-</section>
+            <td class="label">FIR Remarks</td>
+            <td>:</td>
+            <td colspan="4" id="firRemarks"></td>
 
-<!-- =======================================================
-SECTION 7
-======================================================= -->
+        </tr>
 
-<section class="report-section">
-
-<h3>
-
-7. FIR Details
-
-</h3>
-
-<div id="firContainer">
-
-<table class="details-table">
-
-<tr>
-
-<th>FIR No</th>
-
-<td id="firNo"></td>
-
-<th>FIR Date</th>
-
-<td id="firDate"></td>
-
-</tr>
-
-<tr>
-
-<th>Police Station</th>
-
-<td id="policeStation"></td>
-
-<th>MVA</th>
-
-<td id="mva"></td>
-
-</tr>
-
-<tr>
-
-<th>IPC</th>
-
-<td id="ipc"></td>
-
-<th>Driver Without Licence</th>
-
-<td id="withoutLicence"></td>
-
-</tr>
-
-<tr>
-
-<th>Previous Police Records</th>
-
-<td colspan="3" id="policeRecords"></td>
-
-</tr>
-
-</table>
-
-</div>
+    </table>
 
 </section>
 
-<!-- =======================================================
-SECTION 8
-======================================================= -->
 
-<section class="report-section">
+<!-- ===========================================================
+VIII THIRD PARTY DETAILS
+=========================================================== -->
 
-<h3>
+<section class="report-box">
 
-8. Third Party Details
+    <div class="box-heading">
 
-</h3>
+        VIII&nbsp;&nbsp;THIRD PARTY DETAILS
 
-<table class="details-table">
+    </div>
 
-<tr>
+    <table class="vehicle-table">
 
-<th>TP Injury</th>
+        <tr>
 
-<td id="tpInjury"></td>
+            <td class="label">Third Party Injury</td>
+            <td>:</td>
+            <td id="tpInjury"></td>
 
-<th>Property Damage</th>
+            <td class="label">Property Damage</td>
+            <td>:</td>
+            <td id="tpPropertyDamage"></td>
 
-<td id="propertyDamage"></td>
+        </tr>
 
-</tr>
+        <tr>
 
-<tr>
+            <td class="label">TPPD Amount</td>
+            <td>:</td>
+            <td id="tppdAmount"></td>
 
-<th>TPPD</th>
+            <td class="label">Police Case</td>
+            <td>:</td>
+            <td id="tpPoliceCase"></td>
 
-<td id="tppd"></td>
+        </tr>
 
-<th>Remarks</th>
+        <tr>
 
-<td id="tpRemarks"></td>
+            <td class="label">Compensation Claimed</td>
+            <td>:</td>
+            <td id="tpCompensation"></td>
 
-</tr>
+            <td class="label">Claim Status</td>
+            <td>:</td>
+            <td id="tpClaimStatus"></td>
 
-</table>
+        </tr>
+
+        <tr>
+
+            <td class="label">Third Party Remarks</td>
+            <td>:</td>
+            <td colspan="4" id="tpRemarks"></td>
+
+        </tr>
+
+    </table>
 
 </section>
 
-<!-- =======================================================
-SURVEYOR REMARKS
-======================================================= -->
+<!-- ===========================================================
+SURVEYOR FOOTER
+=========================================================== -->
 
-<section class="report-section">
+<footer class="surveyor-footer">
 
-<h3>
+    <div class="footer-top-line"></div>
 
-Surveyor Remarks
+    <div class="signature-section">
 
-</h3>
+        <div class="place-date">
 
-<div class="remarks-box">
+            <div class="place-row">
 
-</div>
+                <span class="footer-label">Place :</span>
 
-</section>
+                <span class="footer-line"></span>
 
-<!-- =======================================================
-FOOTER
-======================================================= -->
+            </div>
 
-<footer class="report-footer">
+            <div class="place-row">
 
-<div class="signature">
+                <span class="footer-label">Date :</span>
 
-<p>
+                <span class="footer-line"></span>
 
-For
+            </div>
 
-</p>
+        </div>
 
-<h3>
+        <div class="signature-block">
 
-S. SANTHANAM
+            <img
+                src="seal.png"
+                class="official-seal"
+                alt="Surveyor Seal">
 
-</h3>
+            <img
+                src="signature.png"
+                class="official-signature"
+                alt="Surveyor Signature">
 
-<p>
+            <h3>
 
-Surveyor & Loss Assessor
+                S. SANTHANAM
 
-</p>
+            </h3>
 
-</div>
+            <p>
+
+                Licensed Surveyor & Loss Assessor
+
+            </p>
+
+            <p>
+
+                Licence No : SLA 122030
+
+            </p>
+
+            <p>
+
+                IIISLA No : L / S / 10870
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line"></div>
 
 </footer>
+</section>
 
 </div>
-
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
